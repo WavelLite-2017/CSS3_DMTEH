@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3属性-border-image-边框图片</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.sswr {
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			background: #fff;
+			text-align: center;
+			line-height: 200px;
+		}
+		.bi-0 {
+			background: #fff;
+		}
+		.bi-2 {
+			background: #f6f6f6;
+		}
+		.bi-0 {
+			border-width: 20px;
+			border-style: solid;
+			/* url slice{1,4}/width{1,4}? repeat */
+			border-image: url('../img/bi-1.jpg') 33/33px round;
+		}
+		.bi-1 {
+			border: 33px solid;
+			border-image-source: url('../img/bi-1.jpg');
+			border-image-slice: 33;
+			border-image-width: 33px;
+			border-image-repeat: round;
+		}
+		.bi-2 {
+			border: 23px solid;
+			border-image: url('../img/bi-0.png') 23 round;
+		}
+		.bi-3 {
+			border: 33px solid;
+			/* 四边拉伸 */
+			border-image: url('../img/bi-1.jpg') 33 stretch;
+		}
+		.bi-4 {
+			border: 33px solid;
+			/* 上下拉伸，左右平铺 */
+			border-image: url('../img/bi-1.jpg') 33 stretch round;
+		}
+		.bi-5 {
+			border-width: 10px 20px 30px 40px;
+			border-style: solid;
+			/* 四边平铺，slice/width */
+			border-image: url('../img/bi-1.jpg') 40 30 20 10/10px 20px 30px 40px round;
+		}
+		.bi-6 {
+			/* border属性不能少 */
+			border-width: 20px;
+			border-style: solid;
+			border-image: linear-gradient(to left, skyblue, red, yellow, orange) 40;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			border-image: none | <image> [<number> | <percentage>] {1,4} [/<border-width>{1,4}]? [ stretch | repeat | round ]{0,2}
+		==>
+			none: 默认值，如果为none，则表示边框无背景图片
+			image: 设置边框背景图片，跟background-image一样，可使用相对绝对路径
+			number: 设置边框的宽度，单位为px（默认不用添加px），可用1-4个值，分别表示不同的边，可参考border-width的设定
+			percentage: 同number一样，不过这是用百分比来设定宽度的
+			stretch、repeat、round: 用来设定边框背景的铺放方式，可 stretch 拉伸（默认）、repeat 重复、round 平铺
+
+		border-image 分解：
+			border-image-source: url(image url); 引入图片
+			border-image-slice: [<number> | <percentage>]{1,4}&&file?; 切割引入图片，number不带单位px，percentage必须写%
+				==> 九宫格原理，每个格子对应每个位置；
+			border-image-width: [<length> | <percentage> | <number>]{1,4} 就是边框宽度border-width
+			border-image-repeat: [stretch | repeat | round] {1,2} 默认为stretch
+		==>
+			不能这样分解的书写，整体写法为
+			border-image: <border-image-source> || <border-image-slice> [/ <border-image-width>] || <border-image-repeat>
+
+		PS：需配合border属性中的至少 border-style && border-width 属性才有效果
+	-->
+
+	<div class="sswr bi-0">bi-0-缩写</div>
+	<div class="sswr bi-1">bi-1-分解写法</div>
+	<div class="sswr bi-2">bi-2-demo测试</div>
+	<div class="sswr bi-3">bi-3-stretch-四边拉伸</div>
+	<div class="sswr bi-4">bi-4-上下拉伸-左右平铺</div>
+	<div class="sswr bi-5">bi-5-slice/width</div>
+	<div class="sswr bi-6">bi-6-gradient-渐变边框</div>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Css3-变形transform</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.fat {
+			height: 20px;
+			background: #333;
+			margin-bottom: 200px
+		}
+		.rsstm {
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			margin-top: 10px;
+			margin-left: 100px;
+		}
+		.t0 {
+			background: #458B74;
+		}
+		.t1 {
+			background: #436EEE;
+		}
+		.t2 {
+			background: #2F4F4F;
+		}
+		.t3 {
+			background: #00FFFF;
+		}
+		.t4 {
+			background: #8B3626;
+		}
+		.t5 {
+			background: #9ACD32;
+		}
+		.t6 {
+			background: #9A32CD;
+		}
+		.t7 {
+			background: #CD4F39;
+		}
+		.t8 {
+			background: #D1D1D1;
+		}
+		.t9 {
+			background: #8E8E38;
+		}
+		.t10 {
+			background: #8B4500;
+		}
+		.t11 {
+			background: #87CEFA;
+		}
+
+		/* 旋转效果 - 角度：正顺时针，负逆时针 */
+		.h0:hover, .A0 {
+			transform: rotate(45deg)
+		}
+		/* 基点改变 */
+		.o0 {
+			transform-origin: 100% 0%;
+		}
+		.o0:hover {
+			transform: rotate(-45deg)
+		}
+		/* ----- END ----- */
+
+
+		/* 缩放效果 - 缩小 - XY轴 */
+		.h1:hover, .A1 {
+			transform: scale(0.8, 1);
+			/* 一样的效果 */
+			/*transform: scaleX(0.8) scaleY(1);*/
+		}
+		/* 基点改变 */
+		.o1 {
+			transform-origin: 100% 0%;
+		}
+		.o1:hover {
+			/*transform: scale(0.8, 1);*/
+			transform: scaleX(0.8) scaleY(1);
+		}
+		/* ----- END ----- */
+
+
+		/* 缩放效果 - 放大 - XY轴 */
+		.h2:hover, .A2 {
+			transform: scale(1.2)
+		}
+		/* 基点改变 */
+		.o2 {
+			transform-origin: 100% 0%;
+		}
+		.o2:hover {
+			transform: scale(1.2)
+		}
+		/* ----- END ----- */
+
+
+		/* 扭曲 - skewX - XY轴 */
+		.h2:hover, .A2 {
+			transform: skew(10deg, 0deg);
+			/* 一样的效果 */
+			/*transform: skewX(10deg) skewY(20deg);*/
+		}
+		/* 基点改变 */
+		.o2 {
+			transform-origin: 100% 0%;
+		}
+		.o2:hover {
+			transform: skew(10deg, 20deg)
+		}
+		/* ----- END ----- */
+
+
+		/* 移动 - translateY - XY轴 */
+		.h3:hover, .A3 {
+			transform: translate(10px, -20px);
+			/* 一样的效果 */
+			/*transform: translateX(10px) translateY(-20px);*/
+		}
+		/* 基点改变 - 在移动属性上没有什么效果 */
+		.o3 {
+			transform-origin: 100% 0%;
+		}
+		.o3:hover {
+			transform: translate(10px, -20px)
+		}
+		/* ----- END ----- */
+
+
+		/* 矩阵变形(a, c, b, d, tx, ty) - abcd为一个二维矩阵 - tx, ty在不同浏览器有不同的情况，就是基于xy轴的重新定位 */
+		/* a：固定左上角点（基点），水平拉伸大小，正常为 1; >1 向右拉伸; <1,>0 向左拉伸; <0 根据左边线翻转180度进行左拉伸 */
+		/* b：固定左上角点（基点），进行向上向下斜切，>0 向下斜切；<0 向上斜切 */
+		/* c：固定左上角点（基点），进行向左向右斜切，>0 向右斜切；<0 向左斜切 */
+		/* d：固定左上角点（基点），水平拉伸大小，正常为 1; >1 向下拉伸; <1,>0 向上拉伸; <0 根据上边线翻转180度进行上拉伸 */
+		/* tx：水平位移，单位px；>0 向右移动 */
+		/* ty：垂直位移，单位px；<0 向上移动 */
+		.h4:hover, .A4 {
+			transform: matrix(1,0.2,0.2,1,-20,-20);
+			/* 一样的效果 */
+			/*transform: translateX(10px) translateY(-20px);*/
+		}
+		/* 基点改变 - 在移动属性上没有什么效果 */
+		.o4 {
+			transform-origin: 100% 0%;
+		}
+		/* 先移动-20,-20再变形1,0.2,0.2,1 */
+		.o4:hover {
+			transform: matrix(1,0.2,0.2,1,-20,-20);
+		}
+		/* ----- END ----- */
+	</style>
+</head>
+<body>
+	<!--
+		CSS3几个制作动画的属性：
+			transform（变形）、transition（转换）、animation（动画）
+		语法：
+			transform: none | <transform-function> [<transform-function>]*
+		==>
+			transform: rotate(旋转) | scale(缩放) | skew(扭曲) | translate(移动) | matrix(矩阵变形);
+
+		解析：
+			none: 表示不进么变换；
+			<transform-function>：表示一个或多个变换函数，以空格分开
+
+		需要：
+			transform-origin: x y;
+		==>
+			x：百分值,em,px —— left center right
+			y: 百分值,em,px —— top center bottom
+	-->
+	<h4>A展示效果</h4>
+	<div class="fat">
+		<div class="rsstm t0">T0</div>
+		<div class="rsstm t1">T1</div>
+		<div class="rsstm t2">T2</div>
+		<div class="rsstm t3">T3</div>
+		<div class="rsstm t4">T4</div>
+	</div>
+	<h4>直接变形效果 - 中心基点</h4>
+	<div class="fat">
+		<div class="rsstm A0 t0">T0</div>
+		<div class="rsstm A1 t1">T1</div>
+		<div class="rsstm A2 t2">T2</div>
+		<div class="rsstm A3 t3">T3</div>
+		<div class="rsstm A4 t4">T4</div>
+	</div>
+	<h4>A:hover - 展示效果 - 中心基点</h4>
+	<div class="fat">
+		<div class="rsstm h0 t0">T0</div>
+		<div class="rsstm h1 t1">T1</div>
+		<div class="rsstm h2 t2">T2</div>
+		<div class="rsstm h3 t3">T3</div>
+		<div class="rsstm h4 t4">T4</div>
+	</div>
+	<h4>O:hover - 基点改变旋转效果 - 右上角为基点</h4>
+	<div class="fat">
+		<div class="rsstm o0 t0">T0</div>
+		<div class="rsstm o1 t1">T1</div>
+		<div class="rsstm o2 t2">T2</div>
+		<div class="rsstm o3 t3">T3</div>
+		<div class="rsstm o4 t4">T4</div>
+	</div>
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-transform">参考资料 - CSS3 Transform</a>
+	<a href="https://www.css88.com/tool/css3Preview/Transform-Matrix.html">演示效果</a>
+	<br>
+	<br>
+	
+</body>
+</html>

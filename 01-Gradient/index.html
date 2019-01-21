@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3渐变</title>
+	<style>
+		/* 基础设定 */
+		.linear, .radial, .case {
+			width: 200px;
+			height: 100px;
+			border: 1px solid #000;
+			display: inline-block;
+			margin-bottom: 5px;
+		}
+		.l0 {
+			/* 渐变开始 -moz -webkit -o */
+			background: -moz-linear-gradient(top, white, skyblue);
+			background: -webkit-linear-gradient(top, white, skyblue);
+			background: -o-linear-gradient(top, white, skyblue)); 
+			/*background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#000));*/
+		}
+		.l1 {
+			/* 渐变开始 - 标准语法 */
+			background: linear-gradient(skyblue, white);
+		}
+		.l2 {
+			/* 渐变开始 - 标准语法 - to 方向 */
+			background: linear-gradient(to right, white, skyblue);
+		}
+		.l3 {
+			/* 渐变开始 - 标准语法 - 分段多颜色 */
+			background: linear-gradient(to left, white, skyblue, blue, yellow, red);
+		}
+		.l4 {
+			/* 渐变开始 - 标准语法 - 角度 - 到左下角 */
+			background: linear-gradient(to bottom left, white, skyblue, blue, yellow, red);
+		}
+		.l5 {
+			/* 渐变开始 - 标准语法 - 角度 - 0deg 到上 || 90deg 到右 || 180deg 到下 || 270deg 到左 */
+			background: linear-gradient(30deg, white, skyblue, blue, yellow, red);
+		}
+		.l6 {
+			/* 渐变开始 - 标准语法 - 添加图片(就是把前面的颜色换成了渐变色而已...) */
+			background: linear-gradient(to right, rgba(0, 0, 255, 0.9), rgba(255, 255, 255, 0.1)), url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547186685562&di=4237baa755d59fccd2bec00bb3dc9ba7&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fu%2F00%2F38%2F54%2F05%2Fs_1198_561cff5c65b60.jpg) no-repeat top left;
+			background-size: 200px 100px;
+		}
+		.l7 {
+			/* 渐变开始 - 标准语法 - 重复循环颜色段 */
+			background: repeating-linear-gradient(to right, white, red 20%);
+			/*background: repeating-linear-gradient(white, red 20%);*/
+		}
+		.l8 {
+			/* 渐变开始 - 标准语法 - 颜色分割 */
+			background: linear-gradient(to right, red 10%, orange 10%, orange 20%, yellow 20%, yellow 30%, green 30%, green 45%, skyblue 45%, skyblue 60%, blue 60%, blue 75%, purple 75%, purple 100%);
+			/*background: repeating-linear-gradient(white, red 20%);*/
+		}
+
+
+		/* 径向渐变 */
+		.r0 {
+			/* 渐变开始 - 标准语法 */
+			background: radial-gradient(blue, red, yellow);
+		}
+		.r1 {
+			/* 渐变开始 - 标准语法 - %百分比 */
+			background: radial-gradient(blue 30%, red  50%, yellow 70%);
+		}
+		.r2 {
+			/* 渐变开始 - 标准语法 - %百分比分割 */
+			background: radial-gradient(red 10%, orange 10%, orange 20%, yellow 20%, yellow 30%, green 30%, green 45%, skyblue 45%, skyblue 60%, blue 60%, blue 75%, purple 75%, purple 100%);
+		}
+		.r3 {
+			/* 渐变开始 - 标准语法 - circle 和 ellipse（默认） */
+			background: radial-gradient(circle, red, orange, yellow, green, skyblue, blue, purple);
+		}
+		.r4 {
+			/* 渐变开始 - webkit上（标准不可用） - 不同大小 - closest-side（最近的边，中心点到最近的边） - 满屏为盒子宽度的一半  */
+			background: -webkit-radial-gradient(30% 60%, closest-side, red, blue, yellow);
+		}
+		.r5 {
+			/* 渐变开始 - webkit上（标准不可用） - 不同大小 - farthest-side（最远的边，中心点到最远的边） - 满屏为盒子宽度的一半  */
+			background: -webkit-radial-gradient(30% 60%, farthest-side, red, blue, yellow);
+		}
+		.r6 {
+			/* 渐变开始 - webkit上（标准不可用） - 不同大小 - closest-corner（最近的角，中心点到最近的角） - 满屏为盒子宽度的一半  */
+			background: -webkit-radial-gradient(30% 60%, closest-corner, red, blue, yellow);
+		}
+		.r7 {
+			/* 渐变开始 - webkit上（标准不可用） - 不同大小 - farthest-corner（最远的角，中心点到最远的角） - 满屏为盒子宽度的一半  */
+			background: -webkit-radial-gradient(30% 60%, farthest-corner, red, blue, yellow);
+		}
+		.r8 {
+			/* 渐变开始 - webkit上（标准不可用） - 重复图案  */
+			background: -webkit-repeating-radial-gradient(top left, red 10%, blue 20%);
+		}
+		.r9 {
+			/* 渐变开始 - 标准语法(只支持默认语法) - 添加图片(就是把前面的颜色换成了渐变色而已...) */
+			background: radial-gradient(rgba(0, 0, 255, 0.9), rgba(255, 255, 255, 0.1)), url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547186685562&di=4237baa755d59fccd2bec00bb3dc9ba7&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fu%2F00%2F38%2F54%2F05%2Fs_1198_561cff5c65b60.jpg) no-repeat top left;
+			background-size: 200px 100px;
+		}
+
+		/* 案例 */
+		.c0 {
+			/* 渐变开始 - webkit上（标准不可用） - 渐变案例  */
+			background: -webkit-repeating-linear-gradient( 45deg, red, red 5%, blue 5%, blue 10%);
+		}
+		.c1 {
+			/* 渐变开始 - webkit上（标准不可用） - 渐变案例 - 使用多个图形  */
+			background: -webkit-repeating-linear-gradient(45deg, rgba(255, 0, 0, 1),rgba(255, 0, 0, 1) 5%,rgba(0,0,0,0) 5%,rgba(0,0,0,0) 10%), -webkit-repeating-linear-gradient(-45deg, rgba(255, 0, 0, 1),rgba(255, 0, 0, 1) 5%,rgba(0,0,0,0) 5%,rgba(0,0,0,0) 10%);
+		}
+	</style>
+</head>
+<body>
+	<!--
+	线性渐变
+		Mozilla下
+			-moz-linear-gradient([<point> || <angle>,]? <stop>, <stop> [, <stop>]*)
+			三个参数：
+				1 - 线性渐变的方向  ::top是从上到下、left是从左到右，如果定义成left top，那就是从左上角到右下角
+				2 - 起点颜色
+				3 - 终点颜色
+				4 - ::还可以在它们之间插入更多的参数，表示多种颜色的渐变
+		Webkit下
+			-webkit-linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* )//最新发布书写语法
+
+			-webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) //老式语法书写规则
+			五个参数：建议使用新语法
+				1 - 渐变类型  ::可以是linear（线性渐变）或者radial（径向渐变）
+				2 - center top 起点位置
+				3 - center bottom 终点位置
+				4 - 起点颜色
+				5 - 终点颜色
+		标准模式下
+			linear-gradient([to right || 30deg], red, blue) 
+	径向渐变
+		Mozilla下
+			-moz-radial-gradient([<bg-position> || <angle>,]? [<shape> || <size>,]? <color-stop>, <color-stop>[, <color-stop>]*);
+ 		Webkit下	
+ 			-webkit-radial-gradient([<bg-position> || <angle>,]? [<shape> || <size>,]? <color-stop>, <color-stop>[, <color-stop>]*);
+		...
+	-->
+	<div class="linear l0">线性渐变</div>
+	<div class="linear l1">线性渐变</div>
+	<div class="linear l2">线性渐变</div>
+	<div class="linear l3">线性渐变</div>
+	<div class="linear l4">线性渐变</div>
+	<div class="linear l5">线性渐变</div>
+	<div class="linear l6">线性渐变</div>
+	<div class="linear l7">线性渐变</div>
+	<div class="linear l8">线性渐变</div>
+	<br>
+	<div class="radial r0">线性渐变</div>
+	<div class="radial r1">线性渐变</div>
+	<div class="radial r2">线性渐变</div>
+	<div class="radial r3">线性渐变</div>
+	<div class="radial r4">线性渐变</div>
+	<div class="radial r5">线性渐变</div>
+	<div class="radial r6">线性渐变</div>
+	<div class="radial r7">线性渐变</div>
+	<div class="radial r8">线性渐变</div>
+	<div class="radial r9">线性渐变</div>
+	<br>
+	<h2>案例</h2>
+
+	<div class="case c0">case1</div>
+	<div class="case c1">case2</div>
+	<br>
+	<img src="https://www.w3cplus.com/sites/default/files/gradient29.png" alt="">
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-gradient">参考资料 - CSS3 Gradient</a>
+	<a href="http://www.runoob.com/css3/css3-gradients.html">Runoob渐变Api</a>
+	
+</body>
+</html>

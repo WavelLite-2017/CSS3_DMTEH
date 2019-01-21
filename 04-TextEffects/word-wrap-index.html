@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动换行-word-wrap</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.wordWarp {
+			border: 1px solid #000;
+			width: 200px;
+			padding: 50px 0 50px 50px;
+		}
+		.w-1 {
+			/* 自动换行，行内换行，不截断单词换行 */
+			word-wrap: break-word;
+		}
+		.w-2 {
+			/* 词内换行，在遇到边框时才自动换行，其他任何时间都不换行 */
+			word-break: break-all;
+		}
+		.w-3 {
+			/* 词内换行，超长字符串益处情况是不需要换行的，直接撑爆盒子 */
+			word-break: keep-all;
+		}
+		.w-4 {
+			/* 会记录空格，遇br标签才会换行 */
+			white-space: pre;
+		}
+		.w-5 {
+			/* 会记录空格，遇br标签才会换行 */
+			white-space: nowrap;
+		}
+		.w-6 {
+			/* 会记录空格，遇br标签才会换行 */
+			white-space: pre-line;
+		}
+		.w-7 {
+			/* 会记录空格，遇br标签才会换行 */
+			white-space: pre-wrap;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			word-wrap: normal | break-word
+		==>
+			normal: 不换行，允许撑爆盒子
+			break-word: 自动换行，不截断单词
+		==>
+			PS: 在 pre 和 table 中无任何效果
+
+		==>
+			word-wrap: 自动换行 - normal | break-word
+			word-break: 词内换行 - break-all | keep-all
+			white-space: 空格处理 - normal | pre | nowrap | pre-line | pre-wrap | inherit
+	-->
+
+	<div class="wordWarp w-0">w-0 - 没有任何效果情况 - 今天主题是超长英文文本自动换行 word-wrap 的使用，在介绍这个属性的同时，我还把 word-break 和 white-space 两个属性一起放进来介绍，因为这几个属性常给我平时的制作中带来混淆的感觉；https://www.w3cplus.com/content/css3_word_wrap</div>
+	<br>
+	<div class="wordWarp w-1">w-1 - word-wrap:break-word - 不截断单词 - 今天主题是超长英文文本自动换行 word-wrap 的使用，在介绍这个属性的同时，我还把 word-break 和 white-space 两个属性一起放进来介绍，因为这几个属性常给我平时的制作中带来混淆的感觉；https://www.w3cplus.com/content/css3_word_wrap；css3_word_wrap；jkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkj</div>
+	<br>
+	<div class="wordWarp w-2">w-2 - word-break: break-all - 词内换行 - 今天主题是超长英文文本自动换行 word-wrap 的使用，在介绍这个属性的同时，我还把 word-break 和 white-space 两个属性一起放进来介绍，因为这几个属性常给我平时的制作中带来混淆的感觉；https://www.w3cplus.com/content/css3_word_wrap；jkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkj</div>
+	<br>
+	<div class="wordWarp w-3">w-3 - word-break: keep-all - 词内换行 - 今天主题是超长英文文本自动换行 word-wrap 的使用，在介绍这个属性的同时，我还把 word-break 和 white-space 两个属性一起放进来介绍，因为这几个属性常给我平时的制作中带来混淆的感觉；https://www.w3cplus.com/content/css3_word_wrap；jkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkj</div>
+	<br>
+	<div class="wordWarp w-4">w-4 - <br> white-space: pre - 今天主题是超长英文文本自动换行 word-wrap   <br>   的使用，在介绍这个属性的同时，我还把 word-break 和 white-space 两个属性一起放进来介绍，因为这几个属性常给我平时的制作中带来混淆的感觉；https://www.w3cplus.com/content/css3_word_wrap；jkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkj - 遇br才会换行并记录空格</div>
+	<br>
+	<div class="wordWarp w-5">w-5 - <br> white-space: nowrap - 今天主题是超长英文文本自动换行 word-wrap   <br>   的使用，在介绍这个属性的同时，我还把 word-break 和 white-space 两个属性一起放进来介绍，因为这几个属性常给我平时的制作中带来混淆的感觉；https://www.w3cplus.com/content/css3_word_wrap；jkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkj - 不换行，不会记录空格</div>
+	<br>
+	<div class="wordWarp w-6">w-6 - <br> white-space: pre-line - 今天主题是超长英文文本自动换行 word-wrap   <br>   的使用，在介绍这个属性的同时，我还把 word-break 和 white-space 两个属性一起放进来介绍，因为这几个属性常给我平时的制作中带来混淆的感觉；https://www.w3cplus.com/content/css3_word_wrap；jkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkj - 自动换行，合并空白序列，保留换行符</div>
+	<br>
+	<div class="wordWarp w-7">w-7 - <br> white-space: pre-wrap - 今天主题是超长英文文本自动换行 word-wrap   <br>   的使用，在介绍这个属性的同时，我还把 word-break 和 white-space 两个属性一起放进来介绍，因为这几个属性常给我平时的制作中带来混淆的感觉；https://www.w3cplus.com/content/css3_word_wrap；jkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkjjkaldfjsljflsdajklfgjsdlkj - 自动换行，保留空白序列，超长字符不自动断行</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-word-wrap">参考资料 - CSS3 Word-wrap</a> ： 附带讲了 white-space + word-break
+	<br>
+	<br>
+</body>
+</html>

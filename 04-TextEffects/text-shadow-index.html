@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字阴影效果text-shadow</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background: #666;
+			text-align: center;
+		}
+		.xybc {
+			margin-top: 40px;
+			font-size: 40px;
+			color: #fff;
+		}
+		.s1 {
+			/* 颜色在后 */
+			text-shadow: 0 1px 0 red;
+		}
+		.s2 {
+			/* 颜色在前 - Glow and Extra Glow effect（辉光效果或者霓虹灯效果） */
+			text-shadow: #000 0 0 20px;
+		}
+		.s3 {
+			/* 颜色在前 - Glow and Extra Glow effect（辉光效果或者霓虹灯效果） */
+			text-shadow: #fff 0 0 5px, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de;
+		}
+		.s4 {
+			color: #000;
+			/* Apple Style Effect（苹果公司效果） */
+			text-shadow: 0 1px 1px #fff;
+		}
+		.s5 {
+			color: #ccc;
+			/* Photoshop Emboss Effect(PS浮雕效果) */
+			text-shadow: -1px -1px 0 #fff,1px 1px 0 #333,1px 1px 0 #444;
+		}
+		.s6 {
+			color: transparent;
+			/* Blurytext Effect(前景色即文字颜色透明) opera浏览器不支持 */
+			text-shadow: 0 0 5px #f96;
+		}
+		.s7 {
+			color: transparent;
+			/* Blurytext Effect(前景色即文字颜色透明 + PS浮雕效果) opera浏览器不支持 */
+			text-shadow: 0 0 6px #f96, -1px -1px 0 #fff, 1px -1px 0 #444;
+		}
+		.s8 {
+			color: #000;
+			/* Inset text effect(通过色调强弱对比做的一个细微效果，文字颜色 高对比 背景色，阴影略亮与背景色 #000>>#666,$777<#666 ) */
+			text-shadow: 1px 1px 0 #777;
+		}
+		.s9 {
+			/* Stroke text effect(描边效果) */
+			text-shadow: 1px 1px 0 red, -1px -1px 0 red;
+		}
+		.s10 {
+			/* 3D text effect(3D投影效果) */
+			text-shadow: 1px 1px 0 rgba(0,0,0,0.8), 2px 2px 0 rgba(0,0,0,0.8), 3px 3px 0 rgba(0,0,0,0.8), 4px 4px 0 rgba(0,0,0,0.8), 5px 5px 0 rgba(0,0,0,0.8), 6px 6px 0 rgba(0,0,0,0.8), 7px 7px 0 rgba(0,0,0,0.8), 8px 8px 0 rgba(0,0,0,0.8);
+		}
+		.s11 {
+			/* 3D text effect(- 3D投影效果) */
+			text-shadow: -1px -1px 0 rgba(0,0,0,0.8), -2px -2px 0 rgba(0,0,0,0.8), -3px -3px 0 rgba(0,0,0,0.8), -4px -4px 0 rgba(0,0,0,0.8), -5px -5px 0 rgba(0,0,0,0.8), -6px -6px 0 rgba(0,0,0,0.8), -7px -7px 0 rgba(0,0,0,0.8), -8px -8px 0 rgba(0,0,0,0.8);
+		}
+		.s12 {
+			/* Vintge/Retro text effect(复古怀旧效果) */
+			text-shadow: 4px 4px 0 #666, 5px 5px 0 #fff;
+		}
+		.s13 {
+			color: transparent;
+			/* Vintge/Retro text effect(复古怀旧效果) */
+			text-shadow: 2px 2px 0 #666, 3px 3px 0 #fff, -2px -2px 0 #666, -3px -3px 0 #fff;
+		}
+		.s14 {
+			color: rgba(255, 179, 140,0.5);
+			/* Anaglyphic text effect(立体影片的效果，前后透明来进行叠加效果) */
+			text-shadow: 3px 3px 0 rgba(180,255,0,0.5);
+		}
+		.s15 {
+			/* 立体投影 */
+			text-shadow: -1px -1px 0 #555, -2px -2px 0 #555, -3px -3px 0 #555, -4px -4px 0 #555, -5px -5px 0 #555, -6px -6px 0 #555, -7px -7px 0 #555,-8px -8px 0 #555,-9px -9px 0 #555,-10px -10px 0 #555,-11px -11px 0 #555,-12px -12px 0 #555, -13px -13px 0 #000;
+		}
+		.s16 {
+			color: transparent;
+			/* 文字描边效果，只有Chrome/Safari支持 */
+			-webkit-text-stroke: 1px #fff;
+			/* 描边 + 双复古怀旧效果 */
+			text-shadow: 3px 3px 0 #666, 4px 4px 0 #aaa, -3px -3px 0 #666, -4px -4px 0 #aaa;
+		}
+		.s17 {
+			/* 文字 + 弱双复古怀旧效果 */
+			text-shadow: 3px 3px 0 #666, 4px 4px 0 #aaa, -3px -3px 0 #666, -4px -4px 0 #aaa;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			text-shadow: none | <length> none | [<shadow>, ] * <shadow> 或 none | <color> [, <color> ] *
+		==>
+			text-shadow: [颜色(color) x轴(X Offset) y轴(Y Offset) 模糊半径(Blur)]，[颜色(color) x轴(X Offset) y轴(Y Offset) 模糊半径(Blur)]...
+		==>
+			text-shadow: [x轴(X Offset) y轴(Y Offset) 模糊半径(Blur) 颜色(color)]，[x轴(X Offset) y轴(Y Offset) 模糊半径(Blur) 颜色(color)]...
+	-->
+
+	<h2 class="xybc s1">TEXT-SHADOW 文字模糊效果展示，S1</h2>
+	<h2 class="xybc s2">TEXT-SHADOW 文字模糊效果展示，S2</h2>
+	<h2 class="xybc s3">TEXT-SHADOW 文字模糊效果展示，S3</h2>
+	<h2 class="xybc s4">TEXT-SHADOW 文字模糊效果展示，S4</h2>
+	<h2 class="xybc s5">TEXT-SHADOW 文字模糊效果展示，S5</h2>
+	<h2 class="xybc s6">TEXT-SHADOW 文字模糊效果展示，S6</h2>
+	<h2 class="xybc s7">TEXT-SHADOW 文字模糊效果展示，S7</h2>
+	<h2 class="xybc s8">TEXT-SHADOW 文字模糊效果展示，S8</h2>
+	<h2 class="xybc s9">TEXT-SHADOW 文字模糊效果展示，S9</h2>
+	<h2 class="xybc s10">TEXT-SHADOW 文字模糊效果展示，S10</h2>
+	<h2 class="xybc s11">TEXT-SHADOW 文字模糊效果展示，S11</h2>
+	<h2 class="xybc s12">TEXT-SHADOW 文字模糊效果展示，S12</h2>
+	<h2 class="xybc s13">TEXT-SHADOW 文字模糊效果展示，S13</h2>
+	<h2 class="xybc s14">TEXT-SHADOW 文字模糊效果展示，S14</h2>
+	<h2 class="xybc s15">TEXT-SHADOW 文字模糊效果展示，S15</h2>
+	<h2 class="xybc s16">TEXT-SHADOW 文字模糊效果展示，S16</h2>
+	<h2 class="xybc s17">TEXT-SHADOW 文字模糊效果展示，S17</h2>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/blog/52.html">参考资料 - CSS3的文字阴影—text-shadow</a>
+
+</body>
+</html>

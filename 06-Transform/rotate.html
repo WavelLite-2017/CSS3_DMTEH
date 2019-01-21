@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rotate效果展示</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.fat {
+			height: 20px;
+			background: #333;
+			margin-bottom: 200px
+		}
+		.rsstm {
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			margin-top: 10px;
+			margin-left: 100px;
+			color: #fff;
+			position: relative;
+		}
+		.r0, .r0-x, .r0-y {
+			background: #458B74;
+		}
+		.r1, .r1-x, .r1-y {
+			background: #457B74;
+		}
+		.r2, .r2-x, .r2-y {
+			background: #456B74;
+		}
+		.r3, .r3-x, .r3-y {
+			background: #455B74;
+		}
+		.r4, .r4-x, .r4-y {
+			background: #454B74;
+		}
+		.r5, .r5-x, .r5-y {
+			background: #453B74;
+		}
+		.r6, .r6-x, .r6-y {
+			background: #452B74;
+		}
+		.r7, .r7-x, .r7-y {
+			background: #451B74;
+		}
+		.r0 {
+			transform: rotate(45deg);
+		}
+		.r1 {
+			transform: rotate(90deg);
+		}
+		.r2 {
+			transform: rotate(135deg);
+		}
+		.r3 {
+			transform: rotate(180deg);
+		}
+		.r4 {
+			transform: rotate(225deg);
+		}
+		.r5 {
+			transform: rotate(270deg);
+		}
+		.r6 {
+			transform: rotate(315deg);
+		}
+		.r7 {
+			transform: rotate(360deg);
+		}
+		/* X轴旋转 */
+		.r0-x {
+			transform: rotateX(-30deg);
+		}
+		.r1-x {
+			transform: rotateX(-60deg);
+		}
+		.r2-x {
+			transform: rotateX(-95deg);
+		}
+		.r3-x {
+			transform: rotateX(-180deg);
+		}
+		.r4-x {
+			transform: rotateX(-225deg);
+		}
+		.r5-x {
+			transform: rotateX(-275deg);
+		}
+		.r6-x {
+			transform: rotateX(-315deg);
+		}
+		.r7-x {
+			transform: rotateX(-360deg);
+		}
+		/* Y轴旋转 */
+		.r0-y {
+			transform: rotateY(-30deg);
+		}
+		.r1-y {
+			transform: rotateY(-60deg);
+		}
+		.r2-y {
+			transform: rotateY(-95deg);
+		}
+		.r3-y {
+			transform: rotateY(-180deg);
+		}
+		.r4-y {
+			transform: rotateY(-225deg);
+		}
+		.r5-y {
+			transform: rotateY(-275deg);
+		}
+		.r6-y {
+			transform: rotateY(-315deg);
+		}
+		.r7-y {
+			transform: rotateY(-360deg);
+		}
+		.xAxis:after {
+			content: '';
+			display: inline-block;
+			width: 100%;
+			height: 1px;
+			background: red;
+			position: absolute;
+			top: 50%;
+			left: 0;
+		}
+		.yAxis:after {
+			content: '';
+			display: inline-block;
+			width: 1px;
+			height: 100%;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 50%;
+		}
+	</style>
+</head>
+<body>
+	<!-- 正值 顺时针旋转 -->
+	<h4>顺时针 - 逆时针旋转 - 均为rotateZ的旋转</h4>
+	<div class="fat">
+		<div class="rsstm r0">R0 - (45)</div>
+		<div class="rsstm r1">R1 - (90)</div>
+		<div class="rsstm r2">R2 - (135)</div>
+		<div class="rsstm r3">R3 - (180)</div>
+		<div class="rsstm r4">R4 - (225)</div>
+		<div class="rsstm r5">R5 - (270)</div>
+		<div class="rsstm r6">R6 - (315)</div>
+		<div class="rsstm r7">R7 - (360)</div>
+	</div>
+	<!-- X轴旋转 -->
+	<h4>X轴旋转 - 为水平轴 - 往上旋转看箭头</h4>
+	<div class="fat">
+		<div class="rsstm r0-x xAxis">R0-x - (-45↑)</div>
+		<div class="rsstm r1-x xAxis">R1-x - (-90↑)</div>
+		<div class="rsstm r2-x xAxis">R2-x - (-135↑)</div>
+		<div class="rsstm r3-x xAxis">R3-x - (-180↑)</div>
+		<div class="rsstm r4-x xAxis">R4-x - (-225↑)</div>
+		<div class="rsstm r5-x xAxis">R5-x - (-270↑)</div>
+		<div class="rsstm r6-x xAxis">R6-x - (-315↑)</div>
+		<div class="rsstm r7-x xAxis">R7-x - (-360↑)</div>
+	</div>
+	<!-- Y轴旋转 -->
+	<h4>Y轴旋转 - 为垂直轴 - 往右旋转看箭头</h4>
+	<div class="fat">
+		<div class="rsstm r0-y yAxis">R0-y - (-45→)</div>
+		<div class="rsstm r1-y yAxis">R1-y - (-90→)</div>
+		<div class="rsstm r2-y yAxis">R2-y - (-135→)</div>
+		<div class="rsstm r3-y yAxis">R3-y - (-180→)</div>
+		<div class="rsstm r4-y yAxis">R4-y - (-225→)</div>
+		<div class="rsstm r5-y yAxis">R5-y - (-270→)</div>
+		<div class="rsstm r6-y yAxis">R6-y - (-315→)</div>
+		<div class="rsstm r7-y yAxis">R7-y - (-360→)</div>
+	</div>
+</body>
+</html>

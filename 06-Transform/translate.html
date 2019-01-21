@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>translate效果展示</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.fat {
+			height: 20px;
+			background: #333;
+			margin-bottom: 800px
+		}
+		.rsstm {
+			width: 80px;
+			height: 80px;
+			margin-top: 10px;
+			margin-left: 100px;
+			color: #fff;
+			position: relative;
+		}
+		.t0 {
+			background: #458B74;
+		}
+		.t1 {
+			background: #457B74;
+		}
+		.t2 {
+			background: #456B74;
+		}
+		.t3 {
+			background: #455B74;
+		}
+		.t4 {
+			background: #454B74;
+		}
+		.t5 {
+			background: #453B74;
+		}
+		.t6 {
+			background: #452B74;
+		}
+		.t7 {
+			background: #451B74;
+		}
+		/* x轴偏移 */
+		.t0-x {
+			transform: translateX(0px);
+		}
+		.t1-x {
+			transform: translateX(20px);
+		}
+		.t2-x {
+			transform: translateX(40px);
+		}
+		.t3-x {
+			transform: translateX(60px);
+		}
+		.t4-x {
+			transform: translateX(80px);
+		}
+		.t5-x {
+			transform: translateX(100px);
+		}
+		.t6-x {
+			transform: translateX(120px);
+		}
+		.t7-x {
+			transform: translateX(140px);
+		}
+
+		.rsstm-y {
+			display: inline-block;
+		}
+		/* y轴偏移 */
+		.t0-y {
+			transform: translateY(0px);
+		}
+		.t1-y {
+			transform: translateY(20px);
+		}
+		.t2-y {
+			transform: translateY(40px);
+		}
+		.t3-y {
+			transform: translateY(60px);
+		}
+		.t4-y {
+			transform: translateY(80px);
+		}
+		.t5-y {
+			transform: translateY(100px);
+		}
+		.t6-y {
+			transform: translateY(120px);
+		}
+		.t7-y {
+			transform: translateY(140px);
+		}
+		/* z轴偏移，正常情况是面向我们的Z轴 */
+		.fat-z {
+			margin-top: -200px;
+		}
+		.t0-z {
+			transform: rotateX(20deg) rotateY(30deg) translateZ(0px);
+		}
+		.t1-z {
+			transform: rotateX(20deg) rotateY(30deg) translateZ(100px);
+		}
+		.t2-z {
+			transform: rotateX(20deg) rotateY(30deg) translateZ(200px);
+		}
+		.t3-z {
+			transform: rotateX(20deg) rotateY(30deg) translateZ(300px);
+		}
+		.t4-z {
+			transform: rotateX(20deg) rotateY(30deg) translateZ(400px);
+		}
+		.t5-z {
+			transform: rotateX(20deg) rotateY(30deg) translateZ(500px);
+		}
+		.t6-z {
+			transform: rotateX(20deg) rotateY(30deg) translateZ(600px);
+		}
+		.t7-z {
+			transform: rotateX(20deg) rotateY(30deg) translateZ(700px);
+		}
+	</style>
+</head>
+<body>
+	<!-- 正值 向右移动 -->
+	<h4>X轴偏移 - 水平轴</h4>
+	<div class="fat">
+		<div class="rsstm t0 t0-x">T0 - x</div>
+		<div class="rsstm t1 t1-x">T1 - x</div>
+		<div class="rsstm t2 t2-x">T2 - x</div>
+		<div class="rsstm t3 t3-x">T3 - x</div>
+		<div class="rsstm t4 t4-x">T4 - x</div>
+		<div class="rsstm t5 t5-x">T5 - x</div>
+		<div class="rsstm t6 t6-x">T6 - x</div>
+		<div class="rsstm t7 t7-x">T7 - x</div>
+	</div>
+	<h4>Y轴偏移 - 垂直轴</h4>
+	<div class="fat">
+		<div class="rsstm rsstm-y t0 t0-y">T0 - y</div>
+		<div class="rsstm rsstm-y t1 t1-y">T1 - y</div>
+		<div class="rsstm rsstm-y t2 t2-y">T2 - y</div>
+		<div class="rsstm rsstm-y t3 t3-y">T3 - y</div>
+		<div class="rsstm rsstm-y t4 t4-y">T4 - y</div>
+		<div class="rsstm rsstm-y t5 t5-y">T5 - y</div>
+		<div class="rsstm rsstm-y t6 t6-y">T6 - y</div>
+		<div class="rsstm rsstm-y t7 t7-y">T7 - y</div>
+	</div>
+	<h4 class="fat-z">Z轴偏移 - 通过旋转错位看Z轴变化 - 正常情况是垂直屏幕的为Z轴</h4>
+	<div class="fat fat-z">
+		<div class="rsstm rsstm-z t0 t0-z">T0 - z</div>
+		<div class="rsstm rsstm-z t1 t1-z">T1 - z</div>
+		<div class="rsstm rsstm-z t2 t2-z">T2 - z</div>
+		<div class="rsstm rsstm-z t3 t3-z">T3 - z</div>
+		<div class="rsstm rsstm-z t4 t4-z">T4 - z</div>
+		<div class="rsstm rsstm-z t5 t5-z">T5 - z</div>
+		<div class="rsstm rsstm-z t6 t6-z">T6 - z</div>
+		<div class="rsstm rsstm-z t7 t7-z">T7 - z</div>
+	</div>
+</body>
+</html>

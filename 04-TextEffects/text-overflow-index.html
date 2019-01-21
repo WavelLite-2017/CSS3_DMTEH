@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>text-overflow属性-内容溢出</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.ce {
+			border: 1px solid #000;
+			/* 必须要规定的盒子里面 */
+			width: 300px;
+			height: 35px;
+		}
+		.c-0 {
+			/* 益处必须隐藏 */
+			overflow: hidden;
+			/* 才有效果，但没有意义 */
+			text-overflow: clip;
+		}
+		.e-0 {
+			/* 单独使用没有效果 */
+			text-overflow: ellipsis;
+		}
+		.e-1 {
+			/* 配合overflow只是裁切了，没有... */
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+		.e-2 {
+			/* 加上所有的才有效果 */
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		.e-3 {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			height: 25px;
+			white-space: nowrap;
+		}
+		.e-3:after {
+			content: "...";
+		}
+		.e-4 {
+			height: 100px;
+		}
+		.e-4:after {
+			content: "...";
+			padding-left: 20px
+		}
+		.wavellite {
+			width: 200px;
+			background: red;
+		}
+		/* hack编写 */
+		@media screen and (-webkit-min-device-pixel-ratio:0) {
+			.wavellite {
+				width: 60px;
+				border: 1px solid #000;
+				background: blue;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			text-overflow: clip | ellipsis
+		==>
+			clip: 表示不显示省略标记（...） && 需要再一定高度范围内配合overflow: hidden; 使用，不然没有效果
+				==>
+					不怎么使用，用overflow: hidden 效果一样，没意思
+			ellipsis: 对象文本益处时显示文本省略标记（...） && 需要配合 overflow: hidden; && white-space: nowrap; 使用，不然没有效果
+
+		==>
+			很有局限性，只能在一排文字上使用有效果
+	-->
+	
+	<div class="ce c-0">c-0 - 所有浏览器都支持，但是text-overflow:ellipsis只有Firefox不支持</div>
+	<br>
+	<div class="ce e-0">e-0 - 所有浏览器都支持，但是text-overflow:ellipsis只有Firefox不支持</div>
+	<br>
+	<div class="ce e-1">e-1 - 所有浏览器都支持，但是text-overflow:ellipsis只有Firefox不支持</div>
+	<br>
+	<div class="ce e-2">e-2 - 所有浏览器都支持，但是text-overflow:ellipsis只有Firefox不支持</div>
+	<br>
+	<div class="ce e-3">e-3 - 伪类满足需求方法，所有浏览器都支持，但是text-overflow:ellipsis只有Firefox不支持</div>
+	<br>
+	<div class="ce e-4">e-4 - 伪类满足需求方法，增加距离，所有浏览器都支持，但是text-overflow:ellipsis只有Firefox不支持</div>
+	<br>
+	<div class="wavellite"><span>自定义hack方法，不知道的效果如何，自定义hack方法，不知道的效果如何，对比IE浏览器和Chrome浏览器</span></div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-text-overflow">参考资料 - CSS3 Text-overflow</a>
+	<a href="https://www.cnblogs.com/xujanus/p/5653964.html">Hack 写法</a>
+</body>
+</html>

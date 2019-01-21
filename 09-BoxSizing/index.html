@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-box-sizing-盒子模型</title>
+	<style>
+		.box {
+			width: 400px;
+			height: 400px;
+			padding: 20px;
+			border: 10px solid #000;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+		}
+		.b-0 {
+			box-sizing: content-box;
+		}
+		.b-1 {
+			box-sizing: border-box;
+		}
+		/* 案例测试-修复布局 begin */
+		.borderBox {
+			border: 1px solid #000;
+			padding: 20px;
+		}
+		.header {
+			background: black;
+			height: 30px;
+		}
+		.fl {
+			float: left;
+		}
+		.fat {
+			height: 60px;
+		}
+		.lat_content {
+			background: orange;
+			width: 30%;
+			height: 100%;
+		}
+		.main_content {
+			background: skyblue;
+			width: 70%;
+			height: 100%;
+		}
+		.footer {
+			background: #455B74;
+			height: 20px;
+		}
+		.pub {
+			border: 10px solid blue;
+			padding: 20px;
+		}
+		.boxSizing {
+			/* 针对每次繁琐的手动加减盒子，border-box可以让我们安心无忧，谁需要给谁，不是给父盒子使用的 */
+			box-sizing: border-box;
+		}
+
+		
+		/* form表单统一样式 begin */
+		form {
+			width: 200px;
+			padding: 10px;
+			border: 1px solid #000;
+		}
+		.form-field {
+			margin-bottom: 5px;
+			background: #ccc;
+			padding: 2px;
+		}
+		.submit,
+		.reset,
+		.button,
+		.text,
+		.select,
+		.checkbox,
+		.textarea {
+			width: 80px;
+			height: 60px;
+			border-color: red;
+		}
+		.textarea {
+			resize: none;
+		}
+
+		/* 样式统一化了 */
+		.submit,
+		.reset,
+		.button,
+		.text,
+		.select,
+		.checkbox,
+		.textarea {
+			margin: 0;
+			padding: 0;
+			border-width: 1px;
+			box-sizing: content-box;
+		}
+
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			box-sizing: content-box | border-box | inherit
+		==>
+			content-box: 内容盒子，W3C标准Box Model; __>.<__ box width/height === content + padding + border
+			border-box: 边框盒子，IE标准Box Model; __<.>__ box width/height === width/height - border - padding 即 box width/height === content
+	-->
+
+	<div class="box b-0">
+		<img src="../img/bs-1.jpg" alt="b-0" title="b-0">
+	</div>
+	<br>
+	<div>content-box</div>
+	<br>
+
+	<div class="box b-1">
+		<img src="../img/bs-1.jpg" alt="b-1" title="b-1">
+	</div>
+	<br>
+	<div>border-box</div>
+	<br>
+	
+	
+	<!-- 案例测试-修复布局 -->
+	<div class="borderBox">
+		<div class="pub header"></div>
+		<div class="fat">
+			<div class="pub fl lat_content boxSizing"></div>
+			<div class="pub fl main_content boxSizing"></div>
+		</div>
+		<div class="pub footer"></div>
+	</div>
+	<br>
+	<br>
+	<br>
+	
+	<!-- 案例测试-form表单统一 -->
+	<form action="#">
+		<!-- submit提交 -->
+		<div class="form-field">
+			<input type="submit" value="submit" class="submit">
+			<label>Submit</label>
+		</div>
+		<!-- reset重置已选择或者到默认值 -->
+		<div class="form-field">
+			<input type="reset" value="reset" class="reset">
+			<label>Reset</label>
+		</div>
+		<!-- button按钮 -->
+		<div class="form-field">
+			<button class="button">button</button>
+			<label>Button</label>
+		</div>
+		<!-- text普通输入框 -->
+		<div class="form-field">
+			<input type="text" value="text" class="text">
+			<label>text</label>
+		</div>
+		<!-- select下拉框 -->
+		<div class="form-field">
+			<select name="select" id="select" class="select">
+				<option value="1">1980</option>
+				<option value="2">1990</option>
+				<option value="3">2000</option>
+				<option value="4">2010</option>
+			</select>
+			<label>Select</label>
+		</div>
+		<!-- checkbox多选 -->
+		<div class="form-field">
+			<input type="checkbox" class="checkbox">
+			<label>Checkbox-0</label>
+
+			<input type="checkbox" class="checkbox">
+			<label>Checkbox-1</label>
+
+			<input type="checkbox" class="checkbox">
+			<label>Checkbox-2</label>
+		</div>
+		<!-- radio单选 -->
+		<div class="form-field">
+			<input name="radio-id" type="radio" class="radio">
+			<label>Radio-0</label>
+
+			<input name="radio-id" type="radio" class="radio">
+			<label>Radio-1</label>
+
+			<input name="radio-id" type="radio" class="radio">
+			<label>Radio-2</label>
+		</div>
+		<!-- textarea多文本输入框 -->
+		<div class="form-field">
+			<textarea name="textarea" id="textarea" cols="20" rows="10" class="textarea"></textarea>
+			<label>Textarea</label>
+		</div>
+		<div>PS: 所有能统一的样式基本统一了。通过box-sizing 最终统一大小样式了，各个浏览器页差不多一样的效果了，少数部分只能hack了</div>
+	</form>
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-box-sizing">参考资料 - CSS3 Box-sizing</a>
+	<br>
+	<br>
+</body>
+</html>

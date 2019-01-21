@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>skew扭曲效果展示</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.fat {
+			height: 20px;
+			background: #333;
+			margin-bottom: 800px
+		}
+		.rsstm {
+			width: 80px;
+			height: 80px;
+			margin-top: 10px;
+			margin-left: 100px;
+			color: #fff;
+			position: relative;
+		}
+		.s0 {
+			background: #458B74;
+		}
+		.s1 {
+			background: #457B74;
+		}
+		.s2 {
+			background: #456B74;
+		}
+		.s3 {
+			background: #455B74;
+		}
+		.s4 {
+			background: #454B74;
+		}
+		.s5 {
+			background: #453B74;
+		}
+		.s6 {
+			background: #452B74;
+		}
+		.s7 {
+			background: #451B74;
+		}
+		/* x轴 */
+		.s0-x {
+			transform: skewX(20deg);
+		}
+		.s1-x {
+			transform: skewX(40deg);
+		}
+		.s2-x {
+			transform: skewX(60deg);
+		}
+		.s3-x {
+			transform: skewX(80deg);
+		}
+		.s4-x {
+			transform: skewX(-20deg);
+		}
+		.s5-x {
+			transform: skewX(-40deg);
+		}
+		.s6-x {
+			transform: skewX(-60deg);
+		}
+		.s7-x {
+			transform: skewX(-80deg);
+		}
+
+		/* y轴 */
+		.rsstm-y {
+			display: inline-block;
+		}
+		.s0-y {
+			transform: skewY(20deg);
+		}
+		.s1-y {
+			transform: skewY(40deg);
+		}
+		.s2-y {
+			transform: skewY(60deg);
+		}
+		.s3-y {
+			transform: skewY(80deg);
+		}
+		.s4-y {
+			transform: skewY(-20deg);
+		}
+		.s5-y {
+			transform: skewY(-40deg);
+		}
+		.s6-y {
+			transform: skewY(-60deg);
+		}
+		.s7-y {
+			transform: skewY(-80deg);
+		}
+	</style>
+</head>
+<body>
+	<h4>扭曲变形计（倾斜）- X轴 - 效果在 89 -- -89 之间有效果 不能为90</h4>
+	<div class="fat">
+		<div class="rsstm s0 s0-x">S0 - X</div>
+		<div class="rsstm s1 s1-x">S1 - X</div>
+		<div class="rsstm s2 s2-x">S2 - X</div>
+		<div class="rsstm s3 s3-x">S3 - X</div>
+		<div class="rsstm s4 s4-x">S4 - X</div>
+		<div class="rsstm s5 s5-x">S5 - X</div>
+		<div class="rsstm s6 s6-x">S6 - X</div>
+		<div class="rsstm s7 s7-x">S7 - X</div>
+	</div>
+	<h4>扭曲变形计（倾斜）- Y轴 - 效果在 89 -- -89 之间有效果 不能为90</h4>
+	<div class="fat">
+		<div class="rsstm rsstm-y s0 s0-y">S0 - Y</div>
+		<div class="rsstm rsstm-y s1 s1-y">S1 - Y</div>
+		<div class="rsstm rsstm-y s2 s2-y">S2 - Y</div>
+		<div class="rsstm rsstm-y s3 s3-y">S3 - Y</div>
+		<div class="rsstm rsstm-y s4 s4-y">S4 - Y</div>
+		<div class="rsstm rsstm-y s5 s5-y">S5 - Y</div>
+		<div class="rsstm rsstm-y s6 s6-y">S6 - Y</div>
+		<div class="rsstm rsstm-y s7 s7-y">S7 - Y</div>
+	</div>
+	<h4>没有Z轴的变形</h4>
+	<br>
+	<br>
+	<br>
+</body>
+</html>

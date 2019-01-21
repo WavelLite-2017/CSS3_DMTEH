@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>border属性测试-inherit</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.fat {
+			border: 10px solid #000;
+			margin: 50px auto;
+			width: 300px;
+			height: 300px;
+			background: red;
+		}
+		.son {
+			/* inherit 继承并只能继承父级的信息 */
+			width: inherit;
+			height: inherit;
+			margin: 100px;
+			border: inherit;
+			/*background: blue;*/
+		}
+		.grandson {
+			width: 20px;
+			height: 20px;
+			border: inherit;
+			margin: 400px;
+			background: inherit;
+		}
+	</style>
+</head>
+<body>
+	<div class="fat">
+		<div class="son">
+			<div class="grandson"></div>
+		</div>
+	</div>
+
+	<a href="http://www.w3school.com.cn/cssref/pr_border-style.asp">inherit 继承属性</a>
+</body>
+</html>

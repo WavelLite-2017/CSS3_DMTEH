@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-动画效果-Animation-Keyframes</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.ndtdcd {
+			width: 200px;
+			height: 100px;
+			margin-left: 100px;
+		}
+		.ndtdcd-a1 {
+			width: 10px;
+			height: 10px;
+		}
+		.a0 {
+			background: #458B74;
+		}
+		.a0:hover {
+			animation: wobble 2s linear 0s 5 alternate;
+		}
+		.a1 {
+			background: #457B74;
+			/*animation: moveBox 2s linear 0s 5 normal;*/
+			/* 动画属性名，也就是我们前面的keyframes定义的动画名 */
+			animation-name: moveBox;
+			/* 动画持续时间 */
+			animation-duration: 2s;
+			/* 动画频率 */
+			animation-timing-function: ease;
+			/* 动画延迟时间 */
+			animation-delay: 1s;
+			/* 定义循环信息，infinite为无限次 infinite | 5 */
+			animation-iteration-count: infinite;
+			/* 定义动画方式 normal | alternate（轮流，即动画执行后原路返回） */
+			animation-direction: normal;
+		}
+		.paused {
+			/* 动画暂停播放 running | paused */
+			animation-play-state: paused;
+		}
+		.running {
+			/* 动画开启播放 running | paused */
+			animation-play-state: running;
+		}
+		/* 文字摇摆 */
+		.w0 {
+			text-align: center;
+		}
+		.w0:hover {
+			animation: wobbleText 0.5s ease-in-out 0s 5 alternate;
+		}
+		/* 摆动动画 */
+		@keyframes wobble {
+			from {
+				margin-left: 100px;
+				background: green;
+			}
+			40% {
+				margin-left: 150px;
+				background: yellow;
+			}
+			60% {
+				margin-left: 50px;
+				background: red;
+			}
+			to {
+				margin-left: 100px;
+				background: blue;
+			}
+		}
+		/* 小幅度摇摆 */
+		@keyframes wobbleText {
+			from {
+				margin-left: 0px;
+			}
+			50% {
+				margin-left: 5px;
+			}
+			to {
+				margin-left: -5px;
+			}
+		}
+		/* 移动转圈 */
+		@keyframes moveBox {
+			0% {
+				margin-left: 0px;
+				margin-top: 0px;
+			}
+			25% {
+				margin-left: 20px;
+				margin-top: 0px;
+			}
+			50% {
+				margin-left: 20px;
+				margin-top: 20px;
+			}
+			75% {
+				margin-left: 0px;
+				margin-top: 20px;
+			}
+			100% {
+				margin-left: 0px;
+				margin-top: 0px;
+			}
+			
+		}
+	</style>
+</head>
+<body>
+	<!--
+		keyframes 语法：
+			keyframes-rule: '@keyframes' IDENT { keyframes-blocks };
+			keyframes-blocks: [ keyframe-selectors block ]*;
+			keyframes-selectors: [ 'from' | 'to' | PERCENTAGE ] [, [ 'from' | 'to' | PERCENTAGE ] ]*;
+		==>
+			@keyframes IDENT {
+				from {
+					Properties: Properties value;
+				}
+				Percentage {
+					Properties: Properties value;
+				}
+				to {
+					Properties: Properties value;
+				}
+			}
+			或者全部写成百分比的形式：
+			@keyframes IDENT {
+				0% {
+					Properties: Properties value;
+				}
+				Percentage {
+					Properties: Properties value;
+				}
+				100% {
+					Properties: Properties value;
+				}
+			}
+		解析：
+			IDENT 动画名称，可以随意
+				from 动画开始位置，对应的是 0%
+					Properties CSS的属性名
+					Properties value CSS的属性值
+				Percentage 动画百分比值，可以添加多个
+				to 动画结束位置，对应的是 100%
+		
+		animation-name：
+			animation-name: none | IDENT [, none | IDENT]*
+		==> 
+			none: 没有任何的动画
+			IDENT: 为动画名称，@keyframes定义的
+			** 可添加多个
+			
+		animation-duration：
+			animation-duration: <time> [, <time>]*
+		==>
+			time: 数值，单位s，默认为0
+
+		animation-timing-function：
+			animation-timing-function: ease | linear | ease-in | ease-out | ease-in-out | cublc-bezier(<number>,<number>,<number>,<number>) [, ...]*
+		==>
+			ease: 逐渐减慢
+			linear: 匀速
+			ease-in: 加速
+			ease-out: 减速
+			ease-in-out: 先加速后减速
+			cubic-bezier(...): 自定义贝塞尔曲线 0<number<1的值
+
+		animation-delay：
+			animation-delay: <time> [, <time>]*
+		
+		animation-iteration-count：
+			animation-iteration-count: infinite | <number> [, infinite | <number>]*
+		==> 
+			infinite: 指定元素播放次数为无限次数
+			number: 具体多少次，默认值为 1
+
+		animation-direction：
+			animation-direction: normal | alternate [, normal | alternate]*
+		==>
+			normal: 向前播放
+			alternate: 第一轮播放完毕后原路返回（偶数次向前播放，奇数次向反方向播放，0,1,2,3,4,5）
+
+		animation-play-state：
+			animation-play-state: running | paused [, running | paused]*
+		==>
+			running：开启运动
+			paused: 暂停运动
+	-->
+
+	<div class="ndtdcd a0">A0-keyfromes分解</div>
+	<br>
+	<button id="btn-paused">暂停a1运动</button>
+	<button id="btn-running">开启a1运动</button>
+	<br>
+	<br>
+	<div class="ndtdcd-a1 a1" title="A1-animation分解"></div>
+
+
+	<p class="w0">摇摆的文字</p>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-animation">参考资料 - CSS3 Animation</a>
+
+	<script>
+		const btnPaused = document.getElementById('btn-paused');
+		const btnRunning = document.getElementById('btn-running');
+		const a1 = document.getElementsByClassName('a1');
+
+		btnPaused.onclick = function() {
+			console.dir(a1[0])
+			a1[0].classList.add('paused');
+		}
+		btnRunning.onclick = function() {
+			a1[0].classList.remove('paused');
+			a1[0].classList.add('running');
+		}
+	</script>
+</body>
+</html>

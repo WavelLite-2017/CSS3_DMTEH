@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-transition-转换（过渡）</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.pdtd {
+			width: 100px;
+			height: 100px;
+			margin-left: 100px;
+			margin-top: 50px;
+		}
+		.t0 {
+			background: #458B74;
+		}
+		.t1 {
+			background: #457B74;
+		}
+		.t2 {
+			background: #456B74;
+		}
+		.t3 {
+			background: #455B74;
+		}
+		.t4 {
+			background: #454B74;
+		}
+		.t5 {
+			background: #453B74;
+		}
+		.t6 {
+			background: #452B74;
+		}
+		.t7 {
+			background: #451B74;
+		}
+		/* 逐渐变慢 - 全部动画统一时间过渡 */
+		.ease-t0 {
+			transition: all 2s ease 2s;
+			margin-left: 800px;
+			width: 200px;
+			background: red;
+		}
+		/* 匀速 - 指定多个属性，在动画队列里面都会被执行 */
+		.ease-t1 {
+			transition: margin-left 2s linear 2s, width 2s linear 3s, background 2s linear 4s;
+			margin-left: 800px;
+			width: 200px;
+			background: red;
+		}
+		/* 加速 - 指定的属性过渡到了对应的信息，没有指定的background则直接变为对应的信息 */
+		.ease-t2 {
+			transition: margin-left 2s ease-in;
+			margin-left: 800px;
+			background: yellow;
+		}
+		/* 减速 */
+		.ease-t3 {
+			transition: all 2s ease-out;
+			margin-left: 800px;
+			background: blue;
+		}
+		/* 加速后减速 */
+		.ease-t4 {
+			transition: margin-left 2s ease-in-out;
+			margin-left: 800px;
+			background: blue;
+		}
+		/* 自定义时间曲线 - 分开编写样式 */
+		.ease-t5 {
+			/*transition: all 2s cubic-bezier(0.2,0.5,0.9,0.3);*/
+			transition-duration: 1s;
+		}
+		.ease-t5 {
+			margin-left: 800px;
+			background: green;
+			color: #fff
+		}
+		/* 单个属性设定 */
+		.ease-t6 {
+			transition-property: all;
+			transition-duration: 1.5s;
+			transition-timing-function: cubic-bezier(0.1,0.2,0.3,0.4);
+			transition-delay: 0.3s;
+			margin-left: 800px;
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			transition: [<'transition-property'> || <'transition-duration'> || <'transition-timing-function'> || <'transition-delay'> [, [<'transition-property'> || <'transition-duration'> || <'transition-timing-function'> || <'transition-delay'>]]* 
+		主要包含：
+			执行变换的属性：transition-property
+			变换延续的时间：transition-duration
+			在延续时间段中变化的速率变换：transition-timing-function
+			变换延迟时间：transition-delay
+		transition-property
+			语法：
+				transition-property: none | all | [<IDENT>] [, <IDENT>]*
+			解析：
+				none：没有属性改变
+				all：默认值，所有属性改变
+				IDENT：元素属性名
+		transition-duration
+			语法：
+				transition-duration: <time> [, <time>]*
+			解析：
+				time：数值，s或ms，可以用做所有元素，包括after或before，默认为0，即为变换时是即时的。
+		transition-timing-function
+			语法：
+				transition-timing-function: ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>,<number>,<number>,<number>) [, ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>,<number>,<number>,<number>)]*
+			解析：
+				ease：逐渐变慢，默认值，等同于贝塞尔曲线（0.25, 0.1, 0.25, 1）
+				linear：匀速 （0, 0, 1, 1）
+				ease-in：加速 （0.42, 0, 1, 1）
+				ease-out：减速 （0, 0, 0.58, 1）
+				ease-in-out：加速后减速 （0.42, 0, 0.58, 1）
+				cubic-bezier：自定义时间曲线 x1,y1,x2,y2  0-1之间的数值
+		transition-delay
+			语法：
+				transition-delay: <time> [, <time>]
+	-->
+	
+	<div class="pdtd t0">T0-ease</div>
+	<div class="pdtd t1">T1-linear</div>
+	<div class="pdtd t2">T2-ease-in</div>
+	<div class="pdtd t3">T3-ease-out</div>
+	<div class="pdtd t4">T4-ease-in-out</div>
+	<div class="pdtd t5">T5-cubic-bezier</div>
+	<div class="pdtd t6">T6-分开编写</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-transition">参考资料 - CSS3 Transition</a>
+
+	<script>
+		let t0 = document.getElementsByClassName('t0');
+		let t1 = document.getElementsByClassName('t1');
+		let t2 = document.getElementsByClassName('t2');
+		let t3 = document.getElementsByClassName('t3');
+		let t4 = document.getElementsByClassName('t4');
+		let t5 = document.getElementsByClassName('t5');
+		let t6 = document.getElementsByClassName('t6');
+		console.log(t0)
+
+		t0[0].addEventListener('click', function() {
+			console.dir(this)
+			this.classList.add('ease-t0');
+		}, false)
+
+		t1[0].addEventListener('click', function() {
+			console.dir(this)
+			this.classList.add('ease-t1');
+		}, false)
+
+		t2[0].addEventListener('click', function() {
+			console.dir(this)
+			this.classList.add('ease-t2');
+		}, false)
+
+		t3[0].addEventListener('click', function() {
+			console.dir(this)
+			this.classList.add('ease-t3');
+		}, false)
+
+		t4[0].addEventListener('click', function() {
+			console.dir(this)
+			this.classList.add('ease-t4');
+		}, false)
+
+		t5[0].addEventListener('click', function() {
+			console.dir(this)
+			this.classList.add('ease-t5');
+		}, false)
+
+		t6[0].addEventListener('click', function() {
+			console.dir(this)
+			this.classList.add('ease-t6');
+		}, false)
+	</script>
+</body>
+</html>

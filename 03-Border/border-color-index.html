@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS2属性-border-color</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.bc {
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			margin: 50px auto;
+		}
+		/* 边框属性设置 */
+		.trbl-0 {
+			/* border-style: none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | inherit; */
+			border: 10px double orange;
+			/* 上右下左顺序来的 */
+			border-color: red blue yellow green;
+		}
+		.trbl-1 {
+			border-width: 20px;
+			border-style: dashed;
+			/* 上右下左顺序来的 */
+			border-top-color: red;
+			border-right-color: blue;
+			border-bottom-color: yellow;
+			border-left-color: green;
+		}
+		.trbl-2 {
+			border: 5px solid transparent;
+			/* 目前只有Mozilla的Firefox3.0+浏览器支持，不做测试，权当没有 */
+			-moz-border-top-colors: red blue white white black;
+			-moz-border-right-colors: red blue white white black;
+			-moz-border-bottom-colors: red blue white white black;
+			-moz-border-left-colors: red blue white white black;
+		}
+		/* border-style 设置 */
+		.trbl-3 {
+			border: 10px dotted red;
+		}
+		.trbl-4 {
+			border: 10px dashed red;
+		}
+		.trbl-5 {
+			border: 10px solid red;
+		}
+		.trbl-6 {
+			border: 10px double red;
+		}
+		.trbl-7 {
+			border: 10px groove red;
+		}
+		.trbl-8 {
+			border: 10px ridge red;
+		}
+		.trbl-9 {
+			border: 10px inset red;
+		}
+		.trbl-10 {
+			border: 10px outset red;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			border-color: <color> [, <color>]*
+
+		==>
+			color: 颜色值，可以多个。分别表示 上右下左，跟margin的缩写一样的理论
+
+		==>
+			border-top-color | border-right-color | border-bottom-color | border-left-color: <color>  ===> 给各边上色
+
+		border语法：
+			border-style: none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | inherit
+		==>
+			none: 定义无边框
+			hidden: 隐藏边框或无边框，对比表时，用于解决边框冲突问题
+			dotted: 
+	-->
+	<div class="bc trbl-0"></div>
+	<div class="bc trbl-1"></div>
+	<div class="bc trbl-2">只支持firefox3.0+</div>
+	<div class="bc trbl-3">dotted-点线</div>
+	<div class="bc trbl-4">dashed-虚线</div>
+	<div class="bc trbl-5">solid-实线</div>
+	<div class="bc trbl-6">double-双实线</div>
+	<div class="bc trbl-7">groove-凹槽</div>
+	<div class="bc trbl-8">ridge-垄状</div>
+	<div class="bc trbl-9">inset-内槽</div>
+	<div class="bc trbl-10">outset-外槽</div>
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-border-color">参考资料 - CSS3 Border-color</a>
+</body>
+</html>

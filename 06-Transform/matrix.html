@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>matrix缩放效果</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.fat {
+			height: 20px;
+			background: #333;
+			margin-bottom: 900px
+		}
+		.rsstm {
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			margin-top: 10px;
+			margin-left: 100px;
+			color: #fff;
+			position: relative;
+		}
+		.s0 {
+			background: #458B74;
+		}
+		.s1 {
+			background: #457B74;
+		}
+		.s2 {
+			background: #456B74;
+		}
+		.s3 {
+			background: #455B74;
+		}
+		.s4 {
+			background: #454B74;
+		}
+		.s5 {
+			background: #453B74;
+		}
+		.s6 {
+			background: #452B74;
+		}
+		.s7 {
+			background: #451B74;
+		}
+		/* x轴 */
+		.m0-0 {
+			transform: matrix(1,0,0,1,0,0);
+		}
+		.m1-xy {
+			transform: matrix(1,0,0,1,10,10);
+		}
+		.m2-ad {
+			transform: matrix(1.5,0,0,1.5,0,0);
+		}
+		.m3-bc {
+			transform: matrix(1,0.5,0.5,1,0,0);
+		}
+		.m4-abcd {
+			transform: matrix(1,1.5,1.5,1,0,0);
+		}
+		.m5-bcad {
+			transform: matrix(1.5,1,1,1.5,0,0);
+		}
+		.m6-abcd-0 {
+			transform: matrix(0,1,1,0,0,0);
+		}
+		.m7-bcad-0 {
+			transform: matrix(1,0,0,1,0,0);
+		}
+	</style>
+</head>
+<body>
+	<h4>(a,b,c,d,tx,ty) - ad 水平垂直缩放 - cd 扭曲 - txty 水平垂直位移 - abcd位置可互换，谁均大即为缩放</h4>
+	<div class="fat">
+		<div class="rsstm s0 m0-0">M0 - 0</div>
+		<div class="rsstm s1 m1-xy">M1 - xy</div>
+		<div class="rsstm s2 m2-ad">M2 - ad</div>
+		<div class="rsstm s3 m3-bc">M3 - bc</div>
+		<div class="rsstm s4 m4-abcd">M4 - abcd</div>
+		<div class="rsstm s5 m5-bcad">M5 - bcad</div>
+		<div class="rsstm s6 m6-abcd-0">M7 - abcd-0</div>
+		<div class="rsstm s7 m7-bcad-0">M7 - bcad-0</div>
+	</div>
+	<h4>abcd - bcad 图形一样，图形里面的内容不一样</h4>
+</body>
+</html>

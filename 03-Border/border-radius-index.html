@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边框border-radius</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#fat {
+			width: 100%;
+			margin: 50px auto;
+			text-align: center;
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+			background: #000;
+		}
+		.b1 {
+			border-radius: none;
+		}
+		.b2 {
+			/* 全部 */
+			border-radius: 30px;
+		}
+		.b3 {
+			/* 左上/右下 右上/左下 */
+			border-radius: 50px 30px;
+		}
+		.b4 {
+			/* 左上 右上/左下 右下 */
+			border-radius: 50px 30px 100px;
+		}
+		.b5 {
+			/* 左上 右上 右下 左下 */
+			border-radius: 50px 30px 100px 10px;
+		}
+		.b6 {
+			/* 水平半径/垂直半径 */
+			border-radius: 80px 60px 40px 20px / 30px 40px 50px 60px;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+		border-radius: none | <length>{1,4} [/ <length>{1,4} ]?
+	-->
+	<div id="fat">
+		<div class="box b1"></div>
+		<div class="box b2"></div>
+		<div class="box b3"></div>
+		<div class="box b4"></div>
+		<div class="box b5"></div>
+		<div class="box b6"></div>
+	</div>
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/css3/border-radius">参考资料 - CSS3的圆角Border-radius</a>
+</body>
+</html>
