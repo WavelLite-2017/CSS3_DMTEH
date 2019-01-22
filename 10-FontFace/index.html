@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3属性-@font-face</title>
+	<style>
+		/* 只需要字体文件即可，其他的可不保留 */
+		@font-face {
+			font-family: 'Brilliantte';
+			src: url(../font/Return-Brilliantte/brilliantte_personal_use_only-webfont.woff) format('woff');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Wavellite';
+			src: url(../font/Return-Brilliantte/brilliantte_personal_use_only-webfont.woff) format('woff');
+			/* src可以设置多个，有可能有多个 */
+			src: url(../font/Return-Brilliantte/brilliantte_personal_use_only-webfont.woff) format('woff'),
+			 	 url(../font/Return-Brilliantte/brilliantte_personal_use_only-webfont.woff2) format('woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+		.fontFace {
+			font-family: 'Brilliantte';
+			font-size: 50px;
+		}
+		/* 测试名称可以自定义 */
+		.fontFace-my {
+			font-family: 'Wavellite';
+			font-size: 30px;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			@font-face: {
+				font-family: <YourWebFontName>;
+				src: <source> [<format>] [, <source> [<format>]]*;
+				[font-weight: <weight>];
+				[font-style: <style>];
+			}
+		==>
+			YourWebFontName: 需要设置的自定义字体名称；
+			source: 字体存放的路径，可以相对或绝对；
+			format: 自定义字体的格式，truetype | opentype | truetype-aat | embedded-opentype | avg 等；
+			weight: 是否为粗体；
+			style: 字体的样式，如斜体；
+
+		==>
+			TrueType === .ttf
+			OpenType === .otf
+			Web Open Font Format === .woff
+			Embedded Open Type === .eot
+			SVG === .svg
+	-->
+	<div class="fontFace">Usage: Click the "Upload Fonts" button, check the agreement and download your fonts. If you need more fine-grain control, choose the Expert option.</div>
+
+	<div class="fontFace-my">Usage: Click the "Upload Fonts" button, check the agreement and download your fonts. If you need more fine-grain control, choose the Expert option.</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-font-face">参考资料 - CSS3 @font-face</a>
+	<a href="https://www.fontsquirrel.com/tools/webfont-generator">英文字体转换 - Font Squirrel</a>
+	<a href="https://stackoverflow.com/questions/2856502/css-font-face-not-working-with-firefox-but-working-with-chrome-and-ie">火狐字体不显示问题</a>
+	<br>
+	<a href="https://www.dafont.com/">Dafont 字体下载</a>
+	<br>
+
+</body>
+</html>
