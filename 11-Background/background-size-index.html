@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-background-size-背景大小</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			height: 2200px;
+		}
+		.cirap {
+			width: 200px;
+			height: 200px;
+			overflow: auto;
+			color: #999;
+			padding: 50px;
+			margin-bottom: 200px;
+		}
+		.b-0 {
+			/* CSS2中的属性-合写 */
+			background: blue url('../img/bi-1.jpg') no-repeat fixed 0px 0px;
+			height: 500px;
+		}
+		.b-1 {
+			/* CSS2中的属性 - 分写 */
+			/*background: blue url('../img/bi-1.jpg') no-repeat scroll 0px 0px;*/
+			/* 背景颜色 */
+			background-color: yellow;
+			/* 背景图像 */
+			background-image: url('../img/bi-1.jpg');
+			/* 背景是否重复 */
+			background-repeat: repeat-y;
+			/* 图像是否固定或滚动-针对浏览器 */
+			background-attachment: scroll;
+			/* 图像位置 */
+			background-position: 30px 20px;
+		}
+		span {
+			color: red;
+		}
+
+		/* CSS3-background-size */
+		.bsize {
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			padding: 20px;
+		}
+		.bs-0 {
+			background: url('../img/bs-1.jpg') no-repeat;
+			/* 图像保持不变 */
+			background-size: auto;
+		}
+		.bs-1 {
+			background: url('../img/bs-1.jpg') no-repeat 40px 40px;
+			/* 图像length-1个单位，另一个跟前面一样 80px */
+			background-size: 80px auto;
+			/*background-size: 80px 80px;*/
+		}
+		.bs-2 {
+			background: url('../img/bs-1.jpg') no-repeat 69px 0px;
+			/* %相对width-padding的和的 */
+			background-size: 50% 20%;
+		}
+		.bs-3 {
+			width: 900px;
+			background: url('../img/bs-3.png') no-repeat;
+			/* 特殊值，只有一个值，放大，把最短的边与盒子进行铺满 */
+			background-size: cover;
+		}
+		.bs-4 {
+			height: 1000px;
+			background: url('../img/bs-2.png') no-repeat;
+			/* 特殊值，只有一个值，放大，把最短的边与盒子进行铺满 */
+			background-size: cover;
+		}
+		.bs-5 {
+			background: url('../img/bs-2.png') no-repeat;
+			/* 特殊值，缩小图像，以最长的边于盒子进行铺满 */
+			background-size: contain;
+		}
+		.bs-6 {
+			background: url('../img/bs-3.png') no-repeat;
+			/* 特殊值，缩小图像，以最长的边于盒子进行铺满 */
+			background-size: contain;
+		}
+
+		.bs-7 {
+			width: 700px;
+			height: 200px;
+			background: url('../img/bs-3.png') no-repeat;
+			/* 100% 100% 保证屏幕都是铺满图片且显示完图片 */
+			background-size: 100% 100%;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		CSS2 - background 语法：
+			background: [<background-color>] [,<background-image>] [,<background-repeat>] [,<background-attachment>] [,<background-position>];
+		==>
+			background-color: 背景颜色 transparent || <color> 
+			background-image: 背景图片 none || <url>
+			background-repeat: 背景图像重复与否 repeat || repeat-x || repeat-y || no-repeat
+			background-attachment: 背景图像滚动固定与否 scroll || fixed
+			background-position: 背景位置 <percentage> || <length> || [left|center|right] [top|center|bottom]
+
+		CSS3 - background-size 语法：
+			background-size: auto || <length> || <percentage> || cover || contain
+		==>
+			auto: 默认值，表示图像的原始高度和宽度
+			length: 具体值，可以改变图像的大小 50px
+			percentage: 百分比，作用于块级元素上，按其百分比来算图像的高度和宽度
+			cover: 放大图像
+			contain: 缩小图像
+		==>
+			解析：
+				PS：单只有一个值得时候，另外一个值为auto，跟前一个值一样。
+	-->
+	<div class="cirap b-0">
+		<span>固定背景-针对浏览器而言-</span>合写-background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+		background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+		background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+		background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+		background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+		background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+	</div>
+	<div class="cirap b-1">
+		<span>滚动背景</span>-分解写-background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+		background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+		background-attachment主要是用来设置背景图像是否固定或者随着页面的其余部分滚动，，其默认值为scroll，表示背景图片会随滚动条一起滚动，而取值fixed时，背景图片固定不动。
+	</div>
+
+
+	<div class="bsize bs-0">bs-0-图像保持不变</div>
+	<div class="bsize bs-1">bs-1-length单个值，第二个auto跟第一个相同</div>
+	<div class="bsize bs-2">bs-2-percentage相对于width-padding的和</div>
+	<div class="bsize bs-3">bs-3-用图像最短的边去铺满盒子对应的边-放大cover-竖版</div>
+	<div class="bsize bs-4">bs-4-用图像最短的边去铺满盒子对应的边-放大cover-横版</div>
+	<div class="bsize bs-5">bs-5-用图像最长的边去铺满盒子对应的边-缩小contain-横版</div>
+	<div class="bsize bs-6">bs-6-用图像最长的边去铺满盒子对应的边-缩小contain-竖版</div>
+	<div class="bsize bs-7">bs-7-100%-100%-保证屏幕都是铺满图片且显示完图片</div>
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-background-size">参考资料 - CSS3 Background-size</a>
+	<br>
+	<br>
+</body>
+</html>
