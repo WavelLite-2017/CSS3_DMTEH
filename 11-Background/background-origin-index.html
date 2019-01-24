@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-background-origin-背景源点-配合clip使用展示</title>
+	<style>
+		.bpc {
+			width: 200px;
+			height: 200px;
+			border: 20px dotted rgba(0,0,255,0.3);
+			padding: 20px;
+			color: #fff;
+			margin-bottom: 30px;
+		}
+		.o-0 {
+			background-image: url(../img/bs-2.png);
+			background-repeat: no-repeat;
+			background-color: red;
+		}
+		.o-1 {
+			background-image: url(../img/bs-2.png);
+			background-repeat: no-repeat;
+			background-color: red;
+			background-origin: border-box;
+		}
+		.o-2 {
+			background-image: url(../img/bs-2.png);
+			background-repeat: no-repeat;
+			background-color: red;
+			background-origin: padding-box;
+		}
+		.o-3 {
+			background-image: url(../img/bs-2.png);
+			background-repeat: no-repeat;
+			background-color: red;
+			background-origin: content-box;
+		}
+		pre {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			background-origin: border-box || padding-box || content-box
+		==> 
+			border-box: 从边框左上角为起点
+			padding-box: 从内边左上角为起点
+			content-box: 从内容左上角为起点
+		==>
+			PS: background-clip === 控制背景颜色、背景图片的显示区域
+				backgournd-origin === 控制背景的background-position的位置，只能控制背景图片
+				结合起来的想象力很大哟~~！！
+	-->
+	<div class="bpc o-0">o-0-效果展示使用-没有使用origin，或者说默认为padding-box的origin</div>
+	<div class="bpc o-1">o-1-border-box 的源点 - 从边框左上角为起点</div>
+	<div class="bpc o-2">o-2-padding-box 的源点 -默认值，从内边距左上角为起点</div>
+	<div class="bpc o-3">o-3-content-box 的源点 - 从内容左上角为起点</div>
+	
+	<pre>
+		PS: background-clip === 控制背景颜色、背景图片的显示区域
+				backgournd-origin === 控制背景的background-position的位置，只能控制背景图片
+				结合起来的想象力很大哟~~！！
+	</pre>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css-background-origin">CSS3 - background-origin</a>
+	<br>
+	<br>
+</body>
+</html>

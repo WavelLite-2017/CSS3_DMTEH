@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-background-clip-背景裁剪</title>
+	<style>
+		body {
+			background: url(../img/bi-1.jpg);
+		}
+		.bpc {
+			width: 300px;
+			height: 300px;
+			border: 20px dotted red;
+			padding: 30px;
+			margin-top: 50px;
+		}
+		.b-0 {
+			/* 从padding左上角开始，而背景颜色从边框border左上角开始的 */
+			background: blue url('../img/bs-3.png') no-repeat 0 0;
+		}
+		.b-1 {
+			background: blue url('../img/bs-1.jpg') no-repeat 100px 100px;
+			background-size: 100% 100%;
+			background-clip: border-box;
+		}
+		.b-2 {
+			background: blue url('../img/bs-1.jpg') no-repeat 100px 100px;
+			background-clip: padding-box;
+		}
+		.b-3 {
+			background: blue url('../img/bs-1.jpg') no-repeat 100px 100px;
+			background-clip: content-box;
+		}
+
+		/* demo1 谷歌特定效果 begin */
+		.b-4 {
+			background: url(../img/bs-1.jpg) no-repeat;
+			border-style: dashed;
+		}
+		.text {
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-size: 60px;
+			font-weight: 900;
+			text-transform: uppercase;
+		}
+		/* demo2 边框透明 */
+		.b-5 {
+			border-color: rgba(255,0,0, 0.3);
+			border-style: solid;
+		}
+		.b-6 {
+			border-color: rgba(255,0,0, 0.3);
+			border-style: solid;
+			/* 背景色挡住了边框透明 */
+			background: blue;
+			/* 通过背景裁剪裁掉边框背景 */
+			background-clip: padding-box;
+		}
+		.b-7 {
+			border-color: rgba(255,0,0, 0.3);
+			border-style: solid;
+			/* 背景色挡住了边框透明 */
+			background: blue;
+			/* 通过背景裁剪裁掉边框背景 */
+			background-clip: content-box;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			background-cli: border-box || padding-box || content-box
+		==>
+			border-box: 默认值，从边框往外开始裁剪，平时不用设定，本身就是以这个为准的
+			padding-box: 从内边距开始往外裁剪（即不包括边框宽度）
+			content-box: 从内容开始往外裁剪（只喊width部分）
+		==>
+			PS：只针对背景而已，不针对背景图片
+	-->
+
+	<div class="bpc b-0">b-0-background背景图片在padding左上角位置为起点而终点不止，而背景颜色是从边框上左上角开始到边框右下角为止</div>
+	<div class="bpc b-1">b-1-border-box-从边框开始裁剪，即保留边框+内边距+内容-主要是针对背景及图片，对边框不影响</div>
+	<div class="bpc b-2">b-2-padding-box-从内边距开始裁剪，即保留内边距+内容</div>
+	<div class="bpc b-3">b-3-content-box-从内边距开始裁剪，即保留内容</div>
+
+	<h3>案例demo1</h3>
+	<div class="bpc b-4 text">b-4-demo1-谷歌特定</div>
+	<div class="bpc b-5">b-5-demo2-边框透明-通过rgba来实现的，没有背景色</div>
+	<div class="bpc b-6">b-6-demo2-边框透明-通过 背景裁剪padding-box 来实现的，有背景色</div>
+	<div class="bpc b-7">b-7-demo2-远距离透明边框-通过 背景裁剪content-box 来实现的，有背景色</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-background-clip">参考资料 - CSS3 Background-clip</a>
+</body>
+</html>
