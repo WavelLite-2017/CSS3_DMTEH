@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-::Selection-归于伪类-选中文字背景前景色设置</title>
+	<style>
+		.box {
+			width: 500px;
+			padding: 30px;
+			border: 1px solid #000;
+		}
+		/* 这是全局设置选中情况 */
+		::selection {
+			background: red;
+			color: white;
+		}
+		/* 单独设置某一个 */
+		h3::selection {
+			background: blue;
+			color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h3>Selection 选中改变前景和背景色</h3>
+		<p>
+			或许大家对这样的实现并不陌生，可是有很多童鞋可能跟我一样，并不知道是如何实现，因为在默认情况下，选择网站文本都是深蓝的背景，白色的字体,就如下本站的而言，选择文本后，背景是深蓝色，而选中的文本就是白色。
+		</p>
+	</div>
+</body>
+</html>
