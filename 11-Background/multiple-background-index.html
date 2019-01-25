@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-Multiple-Background-多背景图片</title>
+	<style>
+		.mtl {
+			width: 500px;
+			height: 620px;
+			border: 1px solid #000;
+			margin-bottom: 50px;
+		}
+		.m-0 {
+			background-image: url(../img/mtl-5-bj.png);
+			position: relative;
+		}
+		img {
+			position: absolute;
+		}
+		.mtl-ren {
+			left: 50%;
+			top: 50%;
+			margin-left: -30%;
+			margin-top: -25%;
+		}
+		.mtl-zi {
+			left: 15%;
+			top: 10%;
+		}
+		.mtl-kuang {
+			left: 6%;
+			top: 2%;
+		}
+		.mtl-yun {
+			bottom: 0;
+			left: 0;
+			z-index: 5;
+		}
+		.mtl-xian {
+			left: 50%;
+			top: 50%;
+			margin-left: -30%;
+		}
+
+		/* Multiple Background 多背景 */
+		.m-1 {
+			background-image: 
+				url(../img/mtl-4-yun.png),
+				url(../img/mtl-3-kuang.png),
+				url(../img/mtl-0-ren.png),
+				url(../img/mtl-1-zi.png),
+				url(../img/mtl-2-xian.png),
+				url(../img/mtl-5-bj.png);
+			background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+			background-position: left bottom, 30px 30px, 50% 70%, 50% 14%, 30% 68%;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		语法：
+			CSS2：5个属性
+				background: <background-color> | <background-image> | <background-repeat> | <background-attachment> | <background-position>
+				==>
+				颜色 color值 || RGBA值
+				图像 url()
+				重复 repeat || no-reapeat || repeat-x || repeat-y
+				状态（固定与否） scroll || fixed
+				位置 length || per
+
+			CSS3: 8个属性
+				background: <background-image> | <background-position>/<background-size> | <background-repeat> | <background-attachment> | <background-clip> | <background-origin> | <background-color>
+				==>
+				图像 color值 || RGBA值
+				位置/大小 <length || per> / <length || per>
+				重复 repeat || no-reapeat || repeat-x || repeat-y
+				状态（固定与否） scroll || fixed
+				裁剪 borde-box || podding-box || content-box
+				源点 borde-box || podding-box || content-box
+				颜色 color值 || RGBA值
+
+			Multiple Background:
+				background-image: url()1,url()2...url()N;
+				background-repeat: repeat1,repeat2...repeatN;
+				background-attachment: attachment1,attachment2...attachmentN;
+				background-postion: position1,position2...positionN;
+				
+				background-size: size1,size2...sizeN;
+				background-clip: clip1,clip2...clipN;
+				background-origin: origin1,origin2...originN;
+
+				background-color: color;
+	-->
+	<div class="mtl m-0">
+		<img class="mtl-ren" src="../img/mtl-0-ren.png" alt="mtl-0-ren">
+		<img class="mtl-zi" src="../img/mtl-1-zi.png" alt="mtl-1-zi">
+		<img class="mtl-yun" src="../img/mtl-4-yun.png" alt="mtl-4-yun">
+		<img class="mtl-kuang" src="../img/mtl-3-kuang.png" alt="mtl-3-kuang">
+		<img class="mtl-xian" src="../img/mtl-2-xian.png" alt="mtl-2-xian">
+		<br><br><br><br><br><br>通过img不懈努力的定位总算定位上去了，标签元素真多。居然还被遮住了文字--淡淡的 忧伤
+	</div>
+
+	<div class="mtl m-1"><br>就是一个盒子，多个背景设置出来的效果</div>
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-multiple-backgrounds">参考资料 - CSS3 Multiple Backgrounds</a>
+	<br>
+	<br>
+</body>
+</html>
