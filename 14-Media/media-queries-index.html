@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-媒体查询概念-Media-Queries</title>
+	<style>
+		/* 这里是全局展示效果，不过会被media里面的样式覆盖，只保留了在1200以上的效果是这样的 */
+		.tq {
+			font-size: 50px;
+		}
+		/* 600-1200的样式 */
+		@media screen and (min-width: 600px) and (max-width: 1200px) {
+			.m-0 {
+				font-size: 24px;
+			}
+		}
+		/* 600以下的时候 */
+		@media screen and (max-width: 600px) {
+			.m-0 {
+				font-size: 18px;
+				color: red;
+				border: 1px solid #000;
+			}
+		}
+		/* 在手机上(移动端)显示 */
+		@media only screen and (max-device-width: 2500px) {
+			.m-0 {
+				background: #ccc;
+				line-height: 80px;
+			}
+		}
+		/* @media 还是符合css的样式叠加标准的，这里是全局的展示效果 */
+		.tq {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		1 - 语法：
+			<link rel="stylesheet" href="small.css" media="screen and (max-width:600px)">
+		==>
+			screen: 媒体类型
+			and: 关键字，与其相似的还有not、only等
+			(max-width:600px): 媒体特性或者叫媒体条件
+
+		2 - 媒体类型 Media Type：
+			CSS2 中 经常使用的 screen | porint | all (其他的见底部 a 标签)
+
+		3 - 引入方式：
+			√3.1 - link引入：<link rel="stylesheet" href="text.css" media="print">
+			3.2 - xml引入：<?xml-stylesheet rel="stylesheet" media="screen" href="css/style.css" ？>
+			3.3 - @import引入：
+				@import url("css/reset.css") screen;
+
+				<style type="text/css">
+					@import url("css/style.css") all;
+				</style>
+			√3.4 - @media引入: 
+				@media screen {
+					选择器 {
+						属性：值
+					}
+				}
+				<style type="text/css">
+					@media screen{
+				           选择器{
+					     属性：属性值；
+					   }
+					}
+			    </style>
+   		
+		+++++++++++++++++++++
+
+		4 - 媒体特性 - 只记录 media queries 信息，dedia query信息不记录（可查资料参考中的信息浏览）
+			4.1 - 最大宽度：max-width
+				<link rel="stylesheet" href="small.css" media="screen and (max-width: 600px)">  ==> 表示当屏幕宽度小于或等于600px时使用small.css样式；
+			4.2 - 最小宽度：min-width
+				<link rel="stylesheet" href="big.css" media="screen and (min-width: 1200)">  ==> 表示当屏幕大于或等于1200px时使用big.css样式；
+			4.3 - 多个media queries 使用；
+				<link rel="stylesheet" href="style.css" media="screen and (min-width: 600px) and (max-width: 1200px)">  ==> 表示当屏幕大于600px且小于1200px的之间使用 style.css样式；
+
+			4.4 - 设备屏幕的输出宽度 Device Width：
+				<link rel="stylesheet" href="device.css" media="screen and (max-device-width: 600px)">  ==> 原理同上面一样，只是这里指的是设备的分辨率；
+
+			4.5 - iPone4，针对设备写样式：
+				<link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" href="iphone4.css" />  ==> 只针对ipone4写的，only
+			4.6 - iPad android （见资料参考）；
+			
+			4.7 - not 关键词：
+				<link rel="stylesheet" href="not.css" media="not print and (max-width:1200px)">  ==> 表示满足宽度在1200px的设备都跳过not.css样式；
+			4.8 - only 关键词：
+				<link rel="stylesheet" href="only.css" media="only screen and (min-width: 600px)">  ==> 表示宽度大于600px的只能使用only.css样式；
+
+			4.9 - 其他：
+				如果没有指定media，默认为all；
+				使用逗号(,) 表示并列或者或：
+					<link rel="stylesheet" href="style.css" media="handheld and (max-width:480px), screen and (min-width:960px)" />；
+		
+		++++++++++++++++++++++
+		Media Queries能在不同的条件下使用不同的CSS样式，使页面达到不同的渲染效果
+	-->
+	
+	<div class="tq m-0">从这儿来看，media最好放在所有样式的最后，不然可能出现样式被覆盖问题（红-蓝）；Media Queries能在不同的条件下使用不同的CSS样式，使页面达到不同的渲染效果</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-media-queries">资料参考 - CCSS3 Media Queries</a>
+	<a href="https://www.w3.org/TR/CSS2/media.html#media-types">资料参考 - CSS2media type 的值</a>
+	<a href="https://www.w3.org/TR/css3-mediaqueries/#media1">资料参考 - Media Query的值</a>
+
+	<br>
+	<br>
+	<div class="tq m-0">
+		首先应用固定布局转换成流体布局，以适应不同分辨率下的比例，更好的适应不同分辨率用户使用；然后结合CSS Media Query在不同的媒体类型和媒体特性下构造不同的样式，从而达到在不同分辨率下显示不同风格的页面效果。百分比运用
+	</div>
+	<a href="https://www.w3cplus.com/css3/media-queries-hicksdesign">案例讲解 - CSS3 Media Queries案例——Hicksdesign</a>
+	<a href="https://hicksdesign.co.uk/goodies">案例网址-1</a>
+
+	<br>
+	<br>
+	<div class="tq m-0">
+		网站合成了web网页制作中的流体的网格布局，灵活的图片排列，Media Queries的判断。但我们的设计往往不只局限在此，我可以通过这样的设计思维，制作出不在局限于桌面浏览器,而是可以直接在移动设备或者更多的设备上浏览。这种设计思维并不是默认不变的，但我个为认为这种设计将会是web布局设计的一种趋势。或许将是一种流行。
+	</div>
+	<a href="https://www.w3cplus.com/css3/media-queries-alistpart">案例讲解 - CSS3 Media Queries案例——A List Apart</a>
+	<a href="https://alistapart.com/d/responsive-web-design/ex/ex-site-FINAL.html#">案例网址-2</a>
+
+	<br>
+	<br>
+	<section>
+		<article>
+			我们把这种流体的布局，结合CSS3的Media Queries进行各种布局称作为Responsive CSS Grid System。换句话说，在各种媒体条件下（CSS3 Media Query）写上不同布局样式，或者说美化样式，可以让你的网站在不同的媒体条件或媒体介质下实现不同的渲染效果。
+		</article>
+	</section>
+	<a href="https://www.w3cplus.com/css3/media-queries-tee-gallery">案例讲解 - CSS3 Media Queries案例——Tee Gallery</a>
+	<a href="http://teegallery.com/">案例网址-3</a>
+</body>
+</html>
