@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-制作文字特效</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.textEffect {
+			height: 120px;
+			line-height: 120px;
+			text-align: center;
+			font-size: 30px;
+			border: 1px solid #000;
+			padding: 20px;
+			font-weight: 900;
+			margin-bottom: 20px;
+		}
+		/* 内阴影效果 */
+		.t-0 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			color: rgb(255, 0, 0);
+			text-shadow: 1px 1px 0 #212121;
+		}
+		/* 3D立体效果 */
+		.t-1 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			color: rgb(255, 255, 255);
+			text-shadow: 
+				0 1px 0 #ccc, 
+				0 2px 0 #c9c9c9, 
+				0 3px 0 #bbb, 
+				0 4px 0 #b9b9b9, 
+				0 5px 0 #aaa, 
+				0 6px 1px rgba(0,0,0,0.1), 
+				0 0 5px rgba(0,0,0,0.1),
+				0 1px 3px rgba(0,0,0,0.3),
+				0 3px 5px rgba(0,0,0,0.2),
+				0 5px 10px rgba(0,0,0,0.25);
+		}
+		/* Neon Lights Effect(霓虹灯效果) */
+		.t-2 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			color: rgb(255, 255, 255);
+			text-shadow: 
+				0 0 5px #CCCCCC,
+				0 0 10px #CCCCCC,
+				0 0 15px #CCCCCC, 
+				0 0 20px #095816, 
+				0 0 25px #095816, 
+				0 0 30px #095816, 
+				0 0 50px #095816, 
+				0 0 80px #095816, 
+				0 0 100px #095816, 
+				0 0 150px #095816;
+		}
+		/* Letterpress Effect (凸版效果) */
+		.t-3 {
+			background: rgb(69, 69, 69);
+			background-clip: content-box;
+			color: #222;
+			text-shadow: 0px 2px 3px #555;
+		}
+		/* Text Embossing(浮雕效果) */
+		.t-4 {
+			background: rgb(106, 133, 175);
+			background-clip: content-box;
+			color: #fff;
+			text-shadow: 0 -1px 0 #374683;
+		}
+		.t-4-1 {
+			background: rgb(201, 201, 201);
+			background-clip: content-box;
+			color: #737373;
+			text-shadow: 0px 1px 0px #e5e5ee;
+		}
+		/* Stroke Effect(描边效果) */
+		.t-5 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			color: #c00;
+			-webkit-text-stroke: 1px #000;
+		}
+		.t-5-1 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			color: #c00;
+			text-shadow: 1px 1px 0 #000,-1px -1px 0 #000;
+		}
+		/* 抽空文字效果 */
+		.t-5-2 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			-webkit-text-stroke: 1px #000;
+			-webkit-text-fill-color: transparent;
+		}
+		/* Anaglyphic effect(补色3D效果) */
+		.t-6 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			color: rgba(255, 100, 140,0.5);
+			text-shadow: 3px 3px 0 rgba(80,255,0,0.8);
+		}
+		/* Rotate Text(旋转文本) */
+		.t-7 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+		}
+		.t-7 div {
+			transform: rotate(-90deg);
+			color: rgb(68, 68, 68);
+		}
+		/* Emboss Effect(浮雕效果) */
+		.t-8 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			color: #ccc;
+			text-shadow: -1px -1px #fff, 1px 1px #333;
+		}
+		/* Blury Effect(模糊效果) */
+		.t-9 {
+			background: rgb(213, 210, 193);
+			background-clip: content-box;
+			color: transparent;
+			text-shadow: 0 0 4px #f36;
+		}
+		/* Background-clip:text(图片填充文字) */
+		.t-10 {
+			background: url(../img/bs-2.png) no-repeat center center;
+			-webkit-background-clip: text; -webkit-text-fill-color: transparent;
+		}
+		/* Background-clip:text(图片填充文字) */
+		.t-11 {
+			background: rgb(213, 210, 193);
+		}
+		.t-11 h2 {
+			background: #666;
+			-webkit-background-clip: text; 
+			background-clip: text; 
+			color: transparent; 
+			text-shadow: 0 3px 3px rgba(255,255,255,0.5);
+		}
+	</style>
+</head>
+<body>
+	<div class="textEffect t-0">内阴影效果-Inset Text - t-0</div>
+	<div class="textEffect t-1">内阴3D Text(3D立体效果) - t-1</div>
+	<div class="textEffect t-2">Neon Lights Effect(霓虹灯效果) - t-2</div>
+	<div class="textEffect t-3">Letterpress Effect (凸版效果) - t-3</div>
+	<div class="textEffect t-4">Text Embossing(浮雕效果) - t-4</div>
+	<div class="textEffect t-4-1">Text Embossing(浮雕效果) - t-4-1</div>
+	<div class="textEffect t-5">Stroke Effect(描边效果，只有webkit内核) - t-5</div>
+	<div class="textEffect t-5-1">Stroke Effect(描边效果，模拟在fiefox内核) - t-5-1</div>
+	<div class="textEffect t-5-2">Text-Fill-Color(抽空文字效果，只有webkit内核有效) - t-5-2</div>
+	<div class="textEffect t-6">Anaglyphic effect(补色3D效果) - t-6</div>
+	<div class="textEffect t-7"><div>旋转文本-t-7</div></div>
+	<div class="textEffect t-8">Emboss Effect(浮雕效果) - t-8</div>
+	<div class="textEffect t-9">Blury Effect(模糊效果) - t-9</div>
+	<div class="textEffect t-10">Background-clip:text(图片填充文字) - t-10</div>
+	<div class="textEffect t-11"><h2>True Inset Effect - t-11</h2></div>
+</body>
+</html>
