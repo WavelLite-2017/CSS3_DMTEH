@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS - 基础选择器 - Basics Selector</title>
+	<style>
+		/* 1 - 通配符选择器 */
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.demo * {
+			font-size: 24px;
+			font-weight: 900;
+		}
+
+		/* 2 - 元素选择器 */
+		div.box p {
+			border: 1px solid #000;
+			padding: 20px;
+		}
+		
+		/* 3 - 类选择器 */
+		.className {
+			background: #ccc;
+			padding: 20px;
+		}
+
+		/* 4 - ID选择器 */
+		#idName1, #idName2, #idName3 {
+			border-bottom: 1px solid red;
+			padding: 20px;
+		}
+
+		/* 5 - 后代选择器 */
+		.EName .FName {
+			color: red;
+		}
+
+		/* 6 - 子元素选择器 */
+		.EName0 > .FName1 {
+			background: yellow;
+		}
+
+		/* 7 - 相邻兄弟元素选择器 */
+		.EName1 + .FName1 {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		基础选择器：
+			1 - 通配符选择器（*）：所有浏览器都支持
+				全局 或 某个元素下的所有 元素  ==>  * { ... } || .demo * { ... }
+
+			2 - 元素选择器（E）：所有浏览器都支持
+				选中所有的元素标签，div, li, html, ... 元素标签  ==>  li { ... }
+
+			3 - 类选择器（.className）：仅IE6浏览器不支持
+				以class来定义命名，可以定义多个用空格隔开  ==> class="first list"
+				多类选择器，所有的类必须存在（IE6不支持）  ==> .first.list { ... }
+
+			4 - ID选择器（ #ID）：所有浏览器都支持
+				以id来定义命名，单个文件只能出现唯一一个id名，且一个元素只能有一个id存在  ==>  <li id="idName"></li> && #idName { ... }
+
+			5 - 后代选择器（E F）：所有浏览器都支持
+				E为祖先元素，F为后代（N代）元素，中间用空格隔开，也称为包含选择器  ==>  .EName .FName { ... }
+
+			6 - 子元素选择器（E>F）：仅IE6浏览器不支持
+				E为父元素，F为子（下一代）元素，F即F只会是E的子元素  ==>  .EName0>.FName { ... }
+
+			7 - 相邻兄弟元素选择器（E+F）：仅IE6浏览器不支持
+				EF有同一个父元素，F紧跟在E的后面  ==>  .EName1+.FName1 { ... }
+
+			8 - 通用兄弟选择器（E~F）：仅IE6浏览器不支持
+				
+	-->
+	
+	<ul class="demo">
+		<li>全局通配符 + 类名下面的通配符 - * {&} .demo * - 1</li>
+		<li>全局通配符 + 类名下面的通配符 - * {&} .demo * - 2</li>
+		<li>全局通配符 + 类名下面的通配符 - * {&} .demo * - 3</li>
+	</ul>
+	
+	<br>
+
+	<div class="box">
+		<p>元素选择器 div.box p - 1</p>
+		<p>元素选择器 div.box p - 2</p>
+		<p>元素选择器 div.box p - 3</p>
+	</div>
+
+	<br>
+
+	<ol>
+		<li class="className">类选择器 .className - 1</li>
+		<li class="className">类选择器 .className - 2</li>
+		<li class="className">类选择器 .className - 3</li>
+	</ol>
+
+	<br>
+
+	<ol>
+		<li id="idName1">ID选择器 #idName - 1</li>
+		<li id="idName2">ID选择器 #idName - 2</li>
+		<li id="idName3">ID选择器 #idName - 3</li>
+	</ol>
+
+	<br>
+
+	<div class="EName">
+		<span class="FName">后代选择器EF - .EName .FName - 1 >>>>>></span>
+		<span class="FName">后代选择器EF - .EName .FName - 2 >>>>>></span>
+		<span class="FName">后代选择器EF - .EName .FName - 3 >>>>>></span>
+	</div>
+
+	<br>
+
+	<div class="EName0">
+		<span class="FName1">子元素选择器E>F - .EName0>.FName1 - 1 >>>>>></span>
+		<span class="FName1">子元素选择器E>F - .EName0>.FName1 - 2 >>>>>></span>
+		<span class="FName1">子元素选择器E>F - .EName0>.FName1 - 3 >>>>>></span>
+	</div>
+	
+	<br>
+
+	<ol>
+		<li class="FName1">相邻兄弟元素选择器E+F - .EName1+.FName1 - 0</li>
+		<li class="EName1">相邻兄弟元素选择器E+F - .EName1+.FName1 - 1</li>
+		<li class="FName1">相邻兄弟元素选择器E+F - .EName1+.FName1 - 2</li>
+		<li class="FName1">相邻兄弟元素选择器E+F - .EName1+.FName1 - 3</li>
+	</ol>
+</body>
+</html>
