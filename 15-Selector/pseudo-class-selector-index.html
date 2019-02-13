@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - 伪类选择器 - Pseudo-class</title>
+	<style>
+		/* link伪类在锚点元素以外的不支持 */
+		.btn:link {
+			color: red;
+		}
+		/* visited伪类在锚点元素以外的不支持 */
+		.btn:visited {
+			color: green;
+		}
+		/* hover伪类在IE6只有a元素支持 */
+		.btn:hover {
+			color: blue;
+		}
+		/* active伪类在IE6-7不支持 */
+		.btn:active {
+			color: yellow;
+		}
+		/* 用于可被选中的元素上，经常用在表单上 */
+		.btn:focus {
+			background: red; 
+		}
+
+		/* 2 - UI元素状态伪类 */
+		/* 可写状态 */
+		input[type="text"]:enabled {
+			color: red;
+		}
+		/* 不可写状态 */
+		input[type="text"]:disabled {
+			color: blue;
+		}
+		input[type="radio"]:checked {
+			background-color: red;
+		}
+
+		/* 3 - CSS3的nth伪类选择器 */
+		ol,#five,#six,#seven,#eight,#nine,#ten {
+			border: 1px solid #000;
+			list-style: none;
+		}
+		/* first-child定位到同父元素下的第一个元素 */
+		#one li:first-child {
+			color: red;
+		}
+		/* last-child定位到同父元素下的最后一个元素 */
+		#two li:last-child {
+			color: red;
+		}
+		/* nth-child()定位同父元素下的一个或多个元素，n为整数从0开始计算 */
+		/*
+			length : 自然整数;
+			n : 参数是n，从0开始计算;
+			n*length : n的倍数选择，n从0开始算;  ==> 2n == even
+			n+length : 选择大于length后面的元素;
+			-n+length : 选择小于length前面的元素;
+			n*length+1 : 表示隔几选一;  ==> 2n+1 == odd
+
+		*/
+		#three li:nth-child(2n+1) {
+			color: red;
+		}
+		/* nth-last-child()定位同父元素下的一个或多个元素，从后面开始计算 */
+		#four li:nth-last-child(-n+5) {
+			color: red;
+		}
+
+		/* nth-of-type()定位同父元素下的同类型元素中的一个或者多个，按类型的顺序来，实际意义不大 */
+		/*#five p:nth-child(2n+1) {*/
+		#five p:nth-of-type(2n+1) {
+			color: red;
+		}
+		/* nth-last-of-type()跟上面一样，只是从后面开始计算而已 */
+
+		/* first-of-type定位到同父元素下的第一个指定元素，实际意义不大 */
+		#six div:first-of-type {
+			color: red;
+		}
+		/* last-of-type跟上面一样，只是从后面开始找而已 */
+		
+		/* only-child只能在父元素下面有一个子元素的类型 */
+		#seven p:only-child {
+			color: red;
+		}
+		/* only-of-type只能在父元素下面有一种同类型的标签 */
+		#eight div:only-of-type {
+			color: red;
+		}
+		/* empty只有在元素标签中什么都没有的情况下有效 */
+		#nine p:empty {
+			height: 20px;
+			background: lime;
+		}
+
+		/* 4 - 否定选择器 */
+		/* not()中只能放属性选择器才有效，排除被找到的其余添加样式 */
+		#ten p:not([class="notP"]) {
+			color: red;
+		}
+
+		/* 5 - 伪元素 */
+		.line {
+			border: 1px solid #000;
+			width: 500px;
+		}
+		/* 第一行 */
+		.line:first-line {
+			color: red;
+			background: #ccc;
+		}
+		/* 第一个 */
+		.line:first-letter {
+			font-size: 30px;
+			margin-left: 20px;
+		}
+		/* before | after 用在清除浮动上比较多，也可以给段落加上固定内容 */
+		.line:before {
+			content: '+'
+		}
+		.line:after {
+			content: '(#`O′)';
+		}
+		/* ::selection必须使用双: */
+		.line::selection {
+			background: blue;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		伪类写法：
+			1 - E:pseudo-class { ... }  ==> a:link { ... }
+			2 - E.class:pseudo-class { ... }  ==>  a.selected:link { ... }
+
+
+		CSS伪类：
+			一、动态伪类（用户与网站交互体现出来的，爱恨原则 - LoVe/HAte与focus）
+				**:link ==> 链接没有被访问时的前景色
+				**:visited ==> 链接被访问后的前景色
+				**:hover ==> 鼠标悬停时的前景色
+				**:active ==> 鼠标点击时那一下的前景色
+
+				**:focus ==> 用于元素成为焦点，经常用于表单上
+
+			二、UI元素状态伪类（主要针对Form表单元素）
+				**:enabled ==> 可写状态下的元素 text
+				**:disabled ==> 不可写状态下的元素 text
+				:checked ==> 只在Opera上面有效，radio checkbox
+
+			三、CSS3的：nth选择器（CSS3结构类）
+				**:first-child ==> 选中某个元素的第一个子元素  ++++++ IE6不支持:first-child选择器
+				**:last-child ==> 选中某个元素的最后一个子元素
+				
+				**:nth-child() ==> 选中某个元素的一个或多个特定的子元素  ++++++ IE6-8和FF3-浏览器不支持":nth-child"选择器
+					nth-child(n)中n为整数，从0开始算
+				:nth-last-child() ==> 选中某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算
+
+				:nth-of-type() ==> 选中指定的元素
+					同类型的顺序计算，不受其他元素影响
+				:nth-last-of-type ==> 选中指定的元素，从元素最后一个开始计算
+
+				:first-of-type ==> 选中一个上级元素下的第一个同类子元素
+				:last-of-type ==> 选中一个上级元素的最后一个同类子元素
+
+				:only-child ==> 选中的元素是它的父元素的唯一 一个子元素  ++++++ IE6-8浏览器不支持
+				:only-of-type ==> 选中一个元素是它的上级元素的 唯一 一个相同类型的子元素 ++++++ IE6-8和FF3.0-浏览器不支持
+
+				:empty ==> 选中的元素里面没有任何内容
+
+			四、:not() 否定选择器
+				定位不匹配该选择器的元素。选中的元素不被添加样式，其他均添加，IE6-8浏览器不支持:not()选择器
+
+			五、伪元素
+				::first-line ==> 第一行文本
+				::first-letter ==> 第一个字
+				::before ==> 在什么之前
+				::after ==> 在什么之后
+				::selection ==> 浏览器中文本选中后的效果
+	-->
+	<h2>动态伪类</h2>
+	<a href="#" class="btn">A元素体现LoVe/HAte</a>
+	<br>
+	<br>
+	<button class="btn">BTN体现LoVe/HAte</button>
+	<h4 class="btn">H4体现LoVe/HAte</h4>
+
+	<br>
+
+	<h2>UI元素状态伪类</h2>
+	<input type="text" value="UI元素状态伪类" enabled="enabled">UI元素Enabled状态伪类
+	<br>
+	<br>
+	<input type="text" value="UI元素状态伪类" disabled="disabled">UI元素Disabled状态伪类
+	<br>
+	<br>
+	<input type="radio" checked>UI元素Checked状态伪类
+	<input type="checkbox" checked>UI元素Checked状态伪类
+	
+	<h2>CSS3的nth伪类选择器</h2>
+	<ol id="one">
+		<li>one - nth伪类选择器 - first-child - 定位到同父元素下的第一个元素 - 0</li>
+		<li>nth伪类选择器 - first-child - 定位到同父元素下的第一个元素 - 1</li>
+		<li>nth伪类选择器 - first-child - 定位到同父元素下的第一个元素 - 2</li>
+	</ol>
+
+	<br>
+
+	<ol id="two">
+		<li>two - nth伪类选择器 - last-child - 定位到同父元素下的最后一个元素 - 0</li>
+		<li>nth伪类选择器 - last-child - 定位到同父元素下的最后一个元素 - 1</li>
+		<li>nth伪类选择器 - last-child - 定位到同父元素下的最后一个元素 - 2</li>
+	</ol>
+
+	<br>
+
+	<ol id="three">
+		<li>three - nth伪类选择器 - nth-child(n) - n为长度 - 定位到同父元素下的一个或多个元素 - 0</li>
+		<li>nth伪类选择器 - nth-child(n) - n为长度 - 定位到同父元素下的一个或多个元素 - 0</li>
+		<li>nth伪类选择器 - nth-child(n) - n为长度 - 定位到同父元素下的一个或多个元素 - 0</li>
+	</ol>
+
+	<br>
+
+	<ol id="four">
+		<li>four - nth-last-child(-n+5) - 0</li>
+		<li>nth-last-child(-n+5) - 1</li>
+		<li>nth-last-child(-n+5) - 2</li>
+		<li>nth-last-child(-n+5) - 3</li>
+		<li>nth-last-child(-n+5) - 4</li>
+		<li>nth-last-child(-n+5) - 5</li>
+		<li>nth-last-child(-n+5) - 6</li>
+	</ol>
+	
+	<div id="five">
+		<p>five - 同类型顺序，不受其他元素影响 - nth-of-type(2n+1) p</p>
+		<span>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) span</span>
+		<span>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) span</span>
+		<p>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) p</p>
+		<div>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) div</div>
+		<div>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) div</div>
+		<div>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) div</div>
+		<p>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) p</p>
+		<p>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) p</p>
+		<p>同类型顺序，不受其他元素影响 - nth-of-type(2n+1) p</p>
+	</div>
+	
+	<br>
+
+	<div id="six">
+		<p>six - 同类型顺序，不受其他元素影响 - first-of-type p</p>
+		<span>同类型顺序，不受其他元素影响 - first-of-type span</span>
+		<span>同类型顺序，不受其他元素影响 - first-of-type span</span>
+		<p>同类型顺序，不受其他元素影响 - first-of-type p</p>
+		<div>同类型顺序，不受其他元素影响 - first-of-type div</div>
+		<div>同类型顺序，不受其他元素影响 - first-of-type div</div>
+		<div>同类型顺序，不受其他元素影响 - first-of-type div</div>
+		<p>同类型顺序，不受其他元素影响 - first-of-type p</p>
+		<p>同类型顺序，不受其他元素影响 - first-of-type p</p>
+		<p>同类型顺序，不受其他元素影响 - first-of-type p</p>
+	</div>
+	
+	<br>
+
+	<div id="seven">
+		<p>seven - 父元素下只能有一个子元素的时候才能有效果 - only-child p</p>
+	</div>
+	
+	<br>
+
+	<div id="eight">
+		<p>eight - 父元素下只能有一种元素标签才能有效果 - only-of-child p</p>
+		<span>父元素下只能有一种元素标签才能有效果 - only-of-child p</span>
+		<div>父元素下只能有一种元素标签才能有效果 -  only-of-child div</div>
+		<p>父元素下只能有一种元素标签才能有效果 - only-of-child p</p>
+	</div>
+	
+	<br>
+
+	<div id="nine">
+		<p></p>
+		<p>empty</p>
+		<p></p>
+	</div>
+	
+	<br>
+
+	<div id="ten">
+		<p>not() - 否定选择器 - 0</p>
+		<p class="notP">not() - 否定选择器 - 1</p>
+		<p>not() - 否定选择器 - 2</p>
+	</div>
+
+	<h2>伪元素</h2>
+	<p class="line">
+		那么有关于CSS3的选择器到这里就全部介绍完了，如果你对这个东西感兴趣，你可以点击这里了解更多的知识。如果你全部看完了这三章关于CSS3选择器的文章你很快能发现，其实有很多选择器和jquery中的选择器是很相似的，新的东西并不多，个人认为最实用的就是:nth-child这些，在特定的环境中所起的作用还是蛮大的，如果你是一位前端的大胆尝试者，你可以尝试这些新的选择器使用方法，这可以让你省去不少的标签，如果你认为还不实用在项目中，但让你学习还是蛮不错的。哈。。。
+	</p>
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/css3/pseudo-class-selector">参考资料 - CSS3 选择器——伪类选择器</a>
+	<a href="http://www.w3school.com.cn/cssref/selector_checked.asp">参考资料 - checked伪类只用于Opera</a>
+	<br>
+	<br>
+</body>
+</html>

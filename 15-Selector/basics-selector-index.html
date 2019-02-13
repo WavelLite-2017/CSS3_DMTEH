@@ -46,6 +46,17 @@
 		.EName1 + .FName1 {
 			color: blue;
 		}
+
+		/* 8 - 通用兄弟选择器 */
+		.EName2 ~ li {
+			font-weight: 900;
+			color: red;
+		}
+
+		/* 9 - 群组选择器 */
+		.Selector1, .Selector2, .SelectorN>span {
+			font-size: 30px;
+		}
 	</style>
 </head>
 <body>
@@ -54,17 +65,17 @@
 			1 - 通配符选择器（*）：所有浏览器都支持
 				全局 或 某个元素下的所有 元素  ==>  * { ... } || .demo * { ... }
 
-			2 - 元素选择器（E）：所有浏览器都支持
+			**2 - 元素选择器（E）：所有浏览器都支持
 				选中所有的元素标签，div, li, html, ... 元素标签  ==>  li { ... }
 
-			3 - 类选择器（.className）：仅IE6浏览器不支持
+			**3 - 类选择器（.className）：仅IE6浏览器不支持
 				以class来定义命名，可以定义多个用空格隔开  ==> class="first list"
 				多类选择器，所有的类必须存在（IE6不支持）  ==> .first.list { ... }
 
-			4 - ID选择器（ #ID）：所有浏览器都支持
+			**4 - ID选择器（ #ID）：所有浏览器都支持
 				以id来定义命名，单个文件只能出现唯一一个id名，且一个元素只能有一个id存在  ==>  <li id="idName"></li> && #idName { ... }
 
-			5 - 后代选择器（E F）：所有浏览器都支持
+			**5 - 后代选择器（E F）：所有浏览器都支持
 				E为祖先元素，F为后代（N代）元素，中间用空格隔开，也称为包含选择器  ==>  .EName .FName { ... }
 
 			6 - 子元素选择器（E>F）：仅IE6浏览器不支持
@@ -74,7 +85,10 @@
 				EF有同一个父元素，F紧跟在E的后面  ==>  .EName1+.FName1 { ... }
 
 			8 - 通用兄弟选择器（E~F）：仅IE6浏览器不支持
-				
+				EF为兄弟元素，E~F表示，选中E后面的所有F元素  ==>  .EName2 ~ li { ... }
+			
+			**9 - 群组选择器（Selector1, ... , SelectorN）：所有浏览器都支持
+				用逗号隔开（ , ），任意选择器组合起来的，并用逗号隔开  ==>  li, Selector1, .EName>.FName, .EName~li ... { ... }
 	-->
 	
 	<ul class="demo">
@@ -131,5 +145,31 @@
 		<li class="FName1">相邻兄弟元素选择器E+F - .EName1+.FName1 - 2</li>
 		<li class="FName1">相邻兄弟元素选择器E+F - .EName1+.FName1 - 3</li>
 	</ol>
+	
+	<br>
+
+	<ol>
+		<li class="EName2">通用兄弟选择器E~F - .EName2 ~ li - 0</li>
+		<li>通用兄弟选择器E~F - .EName2 ~ li - 1</li>
+		<li>通用兄弟选择器E~F - .EName2 ~ li - 2</li>
+		<li>通用兄弟选择器E~F - .EName2 ~ li - 3</li>
+	</ol>
+	
+	<br>
+
+	<ol>
+		<li class="Selector1">群组选择器，把其他选择器整合在一个组里，用逗号隔开 - li, .ClassName, E~F, E>F - 0</li>
+		<li>群组选择器，把其他选择器整合在一个组里，用逗号隔开 - li, .ClassName, E~F, E>F - 1</li>
+		<li>群组选择器，把其他选择器整合在一个组里，用逗号隔开 - li, .ClassName, E~F, E>F - 2</li>
+		<li class="Selector2">群组选择器，把其他选择器整合在一个组里，用逗号隔开 - li, .ClassName, E~F, E>F - 3</li>
+		<li class="SelectorN"><span>群组选择器，把其他选择器整合在一个组里，用逗号隔开 - li, .ClassName, E~F, E>F - 4</span></li>
+		<li>群组选择器，把其他选择器整合在一个组里，用逗号隔开 - li, .ClassName, E~F, E>F - 5</li>
+	</ol>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/css3/basic-selectors">参考资料 - CSS3 选择器——基本选择器</a>
+	<br>
+	<br>
 </body>
 </html>

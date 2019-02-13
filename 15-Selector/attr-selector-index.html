@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - 属性选择器 - Attr</title>
+	<style>
+		/* 1 - E[attr] - 无属性值类型 */
+		#one li[title] {
+			color: red;
+		}
+		#one li[title][id] {
+			font-size: 24px;
+		}
+
+		/* 2 - E[attr="value"] - 指定属性值 */
+		#two li[title="1"] {
+			border: 1px solid red;
+		}
+		/* class为CName0的 */
+		#two li[class="CName0"] {
+			background: #ccc;
+		}
+		/* class为CName0 CName1的 */
+		#two li[class="CName0 CName1"] {
+			background: blue;
+			color: #ccc;
+		}
+		/* 多属性 */
+		#two li[class="CName0"][title="2"] {
+			font-weight: 900;
+		}
+
+		/* 3 - E[attr~="value"] - 相匹配属性值（只要包含该属性词即可） */
+		#three li[title~="website"] {
+			color: red;
+		}
+
+		/* 4 - E[attr^="value"] - 匹配以value开头的属性值 */
+		#four li[href^="http"] {
+			border: 1px solid #000;
+			background: yellow;
+			padding: 10px;
+		}
+
+		/* 5 - E[attr$=".com"] - 匹配以.com结尾的属性值 */
+		#five li[href$='.com'] {
+			font-size: 24px;
+		}
+
+		/* 6 - E[attr*="value"] - 匹配包含value片段的属性值 */
+		#six li[href*="baidu"] {
+			font-weight: bold;
+			color: blue;
+		}
+
+		/* 7 - E[attr|="value"] - 匹配以value或value-开头的属性值 */
+		#seven li[lang|="zh"] {
+			border: 1px solid red;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		属性选择器：
+			1 - E[attr]（不限定属性值）：IE6不支持这个选择器
+				单个属性 E[attr]  ==>  li[title] { ... }
+				可多属性 E[attr][attr]  ==>  li[title][id] { ... }
+			
+			**2 - E[attr="value"]（限定对应的值）：IE6不支持这个选择器
+				单个属性 E[attr="value"]  ==>  li[title="0"] { ... }
+				多个属性 E[attr1="value1"][attr2="value2"]  ==>  li[title="1"][href="www.baidu.com"] { ... }
+
+				PS: 属性和属性值必须 完全匹配，比如class="one two", 只有在E[class="one two"]的时候才能匹配上
+
+			3 - E[attr~="value"]（相匹配指定值）：IE6不支持E[attr~="value"]属性选择器
+				单个多个与前面一样 E[attr~="value"]  ==>  li[title~="website"] { ... }
+
+			4 - E[attr^="value"]（匹配值以value开头的）：IE6不支持E[attr^="value"]选择器
+				单个多个与前面一样 E[attr^="value"]  ==>  li[href^='http'] { ... }
+
+			5 - E[attr$="value"]（匹配以value值结尾的）：IE6不支持E[attr$="value"]属性选择器
+				单个多个与前面一样 E[attr^="value"]  ==> li[href$=".com"] { ... }
+
+			**6 - E[attr*="value"]（匹配值当中包含value片段的）：IE6不支持E[attr*="value"]选择器
+				单个多个与前面一样 E[attr*="value"]  ==> li[herf*="baidu"] { ... }
+
+			7 - E[attr|="value"]（特定属性选择器，匹配以value开头或者value-开头的）：IE6不支持E[attr|="value"]选择器
+				单个多个与前面一样 E[attr|="value"]  ==>  li[lang|="zh"] { ... }
+
+			PS: E[attr="value"]和E[attr*="value"]是最实用的，其中E[attr="value"]能帮我们定位不同类型的元素，特别是表单form元素的操作，比如说input[type="text"],input[type="checkbox"]等，而E[attr*="value"]能在网站中帮助我们匹配不同类型的文件，比如说你的网站上不同的文件类型的链接需要使用不同的icon图标，用来帮助你的网站提高用户体验，就像前面的实例，可以通过这个属性给".doc",".pdf",".png",".ppt"配置不同的icon图标
+	-->
+	
+	<ol id="one">
+		<li title="0">1属性选择器，无属性值 - E[attr] - 0</li>
+		<li>属性选择器，无属性值 - E[attr] - 1</li>
+		<li title="2" id="idName1">属性选择器，无属性值 - E[attr] - 2</li>
+	</ol>
+
+	<br>
+
+	<ol id="two">
+		<li class="CName0" title="0">2属性选择器，指定属性值 - E[attr="value"] - 0</li>
+		<li class="CName0 CName1" title="1" id="idName2">属性选择器，指定属性值 - E[attr="value"] - 1</li>
+		<li class="CName0" title="2">属性选择器，指定属性值 - E[attr="value"] - 2</li>
+	</ol>
+
+	<br>
+
+	<ol id="three">
+		<li title="va website name is fork">3属性选择器，相匹配属性值（只有单独的一个 词 与之匹配即可） - E[attr~='value'] - 0</li>
+		<li title="websi1te name is fork">属性选择器，相匹配属性值（只有单独的一个 词 与之匹配即可） - E[attr~='value'] - 1</li>
+		<li title="vrv websitename is fork">属性选择器，相匹配属性值（只有单独的一个 词 与之匹配即可） - E[attr~='value'] - 2</li>
+	</ol>
+
+	<br>
+
+	<ol id="four">
+		<li href="https://www.baidu.com">4属性选择器，匹配以什么开头的属性值 - E[attr^='value'] - 0</li>
+		<li href="2https://www.baidu.com">属性选择器，匹配以什么开头的属性值 - E[attr^='value'] - 1</li>
+		<li href="http://www.baidu.com">属性选择器，匹配以什么开头的属性值 - E[attr^='value'] - 2</li>
+	</ol>
+
+	<br>
+
+	<ol id="five">
+		<li href="http://www.baidu.net">5属性选择器，匹配以什么结尾的属性值 - E[attr$="value"] - 0</li>
+		<li href="http://www.baidu.com">属性选择器，匹配以什么结尾的属性值 - E[attr$="value"] - 1</li>
+		<li href="http://www.baidu.cn">属性选择器，匹配以什么结尾的属性值 - E[attr$="value"] - 2</li>
+	</ol>
+
+	<br>
+
+	<ol id="six">
+		<li href="http://baionedu.com">6属性选择器，匹配包含某片段的属性值 - E[attr*="value"] - 0</li>
+		<li href="http://sfbaidu.com">属性选择器，匹配包含某片段的属性值 - E[attr*="value"] - 1</li>
+		<li href="http://baidufg.com">属性选择器，匹配包含某片段的属性值 - E[attr*="value"] - 2</li>
+		<li href="http://bau.com baidu">属性选择器，匹配包含某片段的属性值 - E[attr*="value"] - 3</li>
+	</ol>
+
+	<br>
+
+	<ol id="seven">
+		<li lang="zh-cn">7属性选择器，匹配以某开头或某-开头的属性值 - E[attr|="value" - 0</li>
+		<li lang="cn-zh">属性选择器，匹配以某开头或某-开头的属性值 - E[attr|="value" - 1</li>
+		<li lang="zh">属性选择器，匹配以某开头或某-开头的属性值 - E[attr|="value" - 2</li>
+		<li lang="zh cn">属性选择器，匹配以某开头或某-开头的属性值 - E[attr|="value" - 3</li>
+	</ol>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/css3/attribute-selectors">参考资料 - CSS3 选择器——属性选择器</a>
+</body>
+</html>
