@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - btn case - 按钮渐变效果</title>
+	<style>
+		.basic {
+			padding: 0;
+			margin: 0;
+			display: block;
+			font: 400 15px Arial;
+			text-decoration: none;
+			color: #fff;
+			width: 0;
+			height: 0;
+			background: #fff;
+			line-height: 40px;
+			width: 200px;
+			height: 40px;
+			margin: 20px;
+			text-align: center;
+			border: 1px solid rgb(219, 126, 0);
+			cursor: pointer;
+			border-radius: 5px;
+			text-shadow: 0 1px 0 #a9610a;
+		}
+		.btn {
+			background: linear-gradient(to bottom, #faa51a, #f47a20);
+		}
+		.btn:hover {
+			background: linear-gradient(to bottom, #f88e11, #f06015);
+			margin-left: 30px;
+			transition: all 1s ease-in-out;
+		}
+		.btn:active {
+			background: linear-gradient(to bottom, #f47a20, #faa51a)
+		}
+	</style>
+</head>
+<body>
+	<h4>现在的按钮一般还是用UI库里面的比较合适，整套系列搭配</h4>
+	<div class="basic btn">btn-Gradient-div</div>
+	<p class="basic btn">btn-Gradient-p</p>
+	<span class="basic btn">btn-Gradient-span</span>
+	<h3 class="basic btn">btn-Gradient-h3</h3>
+	<a href="" class="basic btn">btn-Gradient-a</a>
+	<input type="text" class="basic btn" value="btn-Gradient-input">
+	<button class="basic btn">btn-Gradient-button</button>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/css3/css3-gradient-buttons">参考资料 - CSS3 Gradient Buttons</a>
+</body>
+</html>
