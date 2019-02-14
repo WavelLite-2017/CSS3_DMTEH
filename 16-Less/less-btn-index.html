@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Less</title>
+	<title>Less - CSS3 - 动态制作按钮</title>
+	<!-- <style type="text/less">
+		@baseColor: red;
+		@baseHoverColor: darken(@baseColor);
+
+		.btn {
+			width: 300px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			border: 1px solid #000;
+			background: @baseColor;
+			color: #fff;
+			&:hover {
+				color: @baseHoverColor;
+			}
+		}
+	</style> -->
+	<!-- 需要通过本地服务启动才可以被编译 -->
+	<link rel="stylesheet/less" type="text/css" href="style.less" />
+	<script src="../public/less.min.js" type="text/javascript"></script>
 </head>
 <body>
-	
+	<div class="btn">按钮Less编译</div>
+	<div class="myBtn">我只是来看看文字大小的</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/blog/125.html">参考资料 - LESS和CSS3动态制作按钮</a>
+	<a href="http://lesscss.cn/">资料文档 - less中文网</a>
+	<a href="http://www.bootcss.com/p/lesscss/">资料文档 - bootstrap官网less教程</a>
+	<br>
+	<br>
 </body>
 </html>

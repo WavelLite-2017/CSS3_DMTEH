@@ -1,0 +1,37 @@
+// 定义的变量，这是全局变量
+@baseColor: red;
+@baseHoverColor: skyblue;
+@backgroundColor: blue;
+@fontSize: 14px;
+
+// 定义的方法，跟函数一样调用，参数为局部变量
+.button(@color: yellow, @my_font_size: 20px) {
+	font-size: @my_font_size;
+	color: @color;
+	background: @baseHoverColor;
+	&:hover {
+		background: @baseColor;
+	}
+}
+
+.btn {
+	width: 300px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	border: 1px solid #000;
+	background: @baseColor;
+	color: #fff;
+	&:hover {
+		background: @baseHoverColor;
+	}
+}
+
+.myBtn {
+	.button();
+	width: 300px;
+	height: 30px;
+	margin-top: 40px;
+	padding: 20px;
+	border: 1px solid #000;
+}
