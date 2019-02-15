@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - 切角效果的Tab栏 - Gradient</title>
+	<style>
+		::selection {
+			background: yellow;
+			color: #000;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		ul {
+			text-align: center;
+			margin-top: 50px;
+			font-size: 0;
+		}
+		ul li {
+			display: inline-block;
+			padding: 10px 30px;
+			/*border: 1px solid #000;*/
+			font-size: 14px;
+			box-shadow: -5px 0 0 rgba(255,255,255,0.2);
+			color: #fff;
+		}
+		.Grt {
+			background: linear-gradient(220deg, transparent 9px, #ad1c1c 10px)
+		}
+		.Grt:hover {
+			background: linear-gradient(220deg, transparent 9px, #c93434 10px)
+		}
+		.Grt:active {
+			background: linear-gradient(220deg, transparent 9px, transparent 10px);
+			box-shadow: inset -5px 0 5px rgba(0,0,0,0.2);
+			color: #000;
+		}
+		.Rad {
+			/*padding: 0;
+			width: 100px;
+			height: 100px;
+			background: #ad1c1c;*/
+		}
+		.beveled {
+			width: 100px;
+			height: 100px;
+			/*background: red;*/
+			/* 把背景分割为4份，没分占一块，拼成一个整图形 */
+			background: linear-gradient(45deg, transparent 10px, red 10px),
+			            linear-gradient(315deg, transparent 10px, red 10px),
+			            linear-gradient(225deg, transparent 10px, red 10px),
+			            linear-gradient(135deg, transparent 10px, red 10px);
+			background-position: bottom left, bottom right, top right, top left; 
+			/*background: linear-gradient(135deg, transparent 10px, red 10px);
+			background-position: right bottom;*/ 
+			background-size: 50% 50%; 
+			background-repeat: no-repeat;
+		}
+		.round {
+			width: 100px;
+			height: 100px;
+			/*background: red;*/
+			/* 把背景分割为4份，没分占一块，拼成一个整图形 */
+			background: -webkit-radial-gradient(0 100%, circle, rgba(204,0,0,0) 9px, red 10px),
+			            -webkit-radial-gradient(100% 100%, circle, rgba(204,0,0,0) 9px, red 10px),
+			            -webkit-radial-gradient(100% 0, circle, rgba(204,0,0,0) 9px, red 10px),
+			            -webkit-radial-gradient(0 0, circle, rgba(204,0,0,0) 9px, red 10px);
+			background-position: bottom left, bottom right, top right, top left; 
+			/*background: linear-gradient(135deg, transparent 10px, red 10px);
+			background-position: right bottom;*/ 
+			background-size: 50% 50%; 
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<h4>通过渐变、位置、大小等维度来定义新的图形</h4>
+	<ul>
+		<li class="Grt">One</li>
+		<li class="Grt">Two</li>
+		<li class="Grt">Three</li>
+		<li class="Grt">Four</li>
+	</ul>
+	<div class="Rad">
+		<div class="beveled"></div>
+		<div class="round"></div>
+	</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/blog/149.html">参考资料 - CSS3+jQuery制作切角的Tabs</a>
+</body>
+</html>
