@@ -82,30 +82,36 @@
 			border-color: transparent transparent transparent #fff;
 		}
 
-		
+		/* 自行测试target */
 		.box {
-			height: 2000px;
-			border: 1px solid #000;
-			position: relative;
-		}
-		#tle {
+			height: 300px;
 			border: 1px solid #000;
 		}
-		.tar {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			border: 1px solid #000;
+		.box .myBox {
+			width: 300px;
+			height: 300px;
+			background: yellow;
 		}
-		/*h3:target #tle {
-			color: blue
-		}*/
+		/* .box表示父元素，限定target作用范围大小，针对目标改变 */
+		.box :target {
+			border: 1px solid #000;
+			background: blue;
+			color: red;
+		}
+		/* 针对目标下面的.myBox进行改变 */
+		.box :target .myBox {
+			height: 30px;
+		}
 	</style>
 </head>
 <body>
 	<!--
 		target语法：
-			E:target F ==> .accordionMenu:target p { ... }
+			E :target F ==> .accordionMenu:target p { ... }
+
+		==>
+			解析：E后面的空格必须要有，E表示父元素，限定该target在哪个父元素下运行
+			F表示目标下面的F元素，只能在target里面的F元素才有效果
 	-->
 
 	<h4>target - id锚点 - a标签 - 来达到我们需要定位的地方 - 再结合动画transition来过渡 </h4>
@@ -125,8 +131,24 @@
 	</div>
 
 	<div class="box">
-		<h3><a href="#tle" class="tilteName">我是标题</a></h3>
-		<div class="tar" id="tle">我放在底部去</div>
+		<div class="one">
+			<h3><a href="#testBox">我是标题</a></h3>
+			<div id="testBox" class="info">我放在底部去</div>
+		</div>
+		<div class="one">
+			<h3><a href="#testBox1">我是标题1</a></h3>
+			<div id="testBox1" class="info">我放在底部去
+				<div class="myBox">文字效果</div>
+			</div>
+		</div>
+		<div class="one">
+			<h3><a href="#testBox2">我是标题2</a></h3>
+			<div id="testBox2" class="info">我放在底部去</div>
+		</div>
 	</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/blog/160.html">参考资料 - CSS3制作手风琴——CSS3 :target的应用</a>
 </body>
 </html>
