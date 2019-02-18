@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - Animation - 蝴蝶飞舞效果</title>
+	<style>
+		.box {
+			/*border: 1px solid #000;*/
+			height: 200px;
+			background: url(../img/hd_bj.jpg);
+		}
+		.hd_0 {
+			width: 400px;
+			transform-origin: 0% 0;
+			transform: rotate(90deg) translateY(-81px);
+			/*transform: rotate3d(130, -30, -150, 45deg);*/
+			animation: move 50s ease-out infinite;
+		}
+		.hd_0 img {
+			width: 5%;
+		}
+		.hd_0 .hd_l {
+			transform-origin: right 0;
+			animation: butterfly-l 1s ease-out infinite; 
+		}
+
+		.hd_0 .hd_r {
+			transform-origin: left;
+			animation: butterfly-l 1s ease-out infinite; 
+		}
+		
+		@keyframes butterfly-l {
+			0% {
+				transform: rotateY(30deg);
+			}
+			50% {
+				transform: rotateY(80deg);
+			}
+			100% {
+				transition: rotateY(0deg)
+			}
+		}
+		@keyframes move {
+			0% {
+				margin-left: 0;
+			}
+			
+			100% {
+				margin-left: 1000px;
+			}
+		}
+
+		/* 蝴蝶案例 */
+		* {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body { 
+            font: 12px/1.5 Verdana, Simsun; 
+            color:#333;
+            /*background-color: #EAF7FD;*/
+        }
+        #butterfly {
+            background: #EAF7FD url("http://www.w3cplus.com/sites/default/files/bg_footer.jpg") no-repeat left bottom;
+            width: 947px;
+            height: 200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        @-moz-keyframes butter1 {
+            0%        { opacity: 0; }
+            10%        { left: 160px; bottom: -135px; opacity: 1; }
+            20%        { left: 240px; bottom: -170px; }
+            30%        { left: 400px; bottom: -200px; }
+            60%        { left: 720px; bottom: -220px; }
+            70%        { left: 800px; bottom: -185px; }
+            80%        { left: 840px; bottom: -215px; opacity: 0.6; }
+            100%    { left: 900px; bottom: -170px; opacity: 0; }
+        }
+        
+        @-webkit-keyframes butter1 {
+            0%        { opacity: 0; }
+            10%        { left: 160px; bottom: -135px; opacity: 1; }
+            20%        { left: 240px; bottom: -170px; }
+            30%        { left: 400px; bottom: -200px; }
+            60%        { left: 720px; bottom: -220px; }
+            70%        { left: 800px; bottom: -185px; }
+            80%        { left: 840px; bottom: -215px; opacity: 0.6; }
+            100%    { left: 900px; bottom: -170px; opacity: 0; }
+        }
+        
+        @-moz-keyframes butter2 {
+            0%        { opacity: 0; }
+            10%        { left: 120px; bottom: -170px; opacity: 1; }
+            40%        { left: 180px; bottom: -190px; }
+            50%        { left: 360px; bottom: -210px; }
+            60%        { left: 600px; bottom: -220px; }
+            80%        { left: 640px; bottom: -190px; opacity: 0.6; }
+            100%    { left: 860px; bottom: -180px; opacity: 0; }
+        }
+        
+        @-webkit-keyframes butter2 {
+            0%        { opacity: 0; }
+            10%        { left: 120px; bottom: -170px; opacity: 1; }
+            40%        { left: 180px; bottom: -190px; }
+            50%        { left: 360px; bottom: -210px; }
+            60%        { left: 600px; bottom: -220px; }
+            80%        { left: 640px; bottom: -190px; opacity: 0.6; }
+            100%    { left: 860px; bottom: -180px; opacity: 0; }
+        }
+        
+        @-moz-keyframes butter3 {
+            0%        { opacity: 0; }
+            10%        { left: 780px; bottom: -190px; opacity: 1; }
+            20%        { left: 720px; bottom: -210px; }
+            40%        { left: 540px; bottom: -220px; }
+            60%        { left: 320px; bottom: -230px; }
+            70%        { left: 240px; bottom: -210px; opacity: 0.6; }
+            100%    { left: 100px; bottom: -160px; opacity: 0; }
+        }
+        
+        @-webkit-keyframes butter3 {
+            0%        { opacity: 0; }
+            10%        { left: 780px; bottom: -190px; opacity: 1; }
+            20%        { left: 720px; bottom: -210px; }
+            40%        { left: 540px; bottom: -220px; }
+            60%        { left: 320px; bottom: -230px; }
+            70%        { left: 240px; bottom: -210px; opacity: 0.6; }
+            100%    { left: 100px; bottom: -160px; opacity: 0; }
+        }
+        
+
+        
+        .butter {position: relative;}
+        #butter1 {bottom: -215px;left: 5px; }
+        #butter2 {bottom: -210px;left: 50px; }
+        #butter3 {bottom: -220px;left: 840px; }        
+        .butterFly {position: absolute; }
+        .butterFly1 { height: 36px; left: 40px; bottom: 60px; }
+        .butterFly2 { height: 40px; left: 80px; bottom: 10px; }
+        .butterFly3 { height: 40px; left: 60px; bottom: 10px; }
+        
+        .butter {
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+            
+            -moz-animation-iteration-count: infinite;
+            -moz-animation-timing-function: linear;
+        }
+        #butter1 { 
+            -webkit-animation-name: butter1; 
+            -webkit-animation-duration: 30s; 
+
+            -moz-animation-name: butter1; 
+            -moz-animation-duration: 30s; 
+
+        }
+        #butter2 { 
+            -webkit-animation-name: butter2; 
+            -webkit-animation-duration: 40s; 
+
+            -moz-animation-name: butter2; 
+            -moz-animation-duration: 40s;
+
+        }
+        #butter3 { 
+            -webkit-animation-name: butter3; 
+            -webkit-animation-duration: 50s; 
+
+            -moz-animation-name: butter3; 
+            -moz-animation-duration: 50s;
+        }
+        
+        @-webkit-keyframes x-spin {
+            0%        { -webkit-transform: rotateX(0deg); }
+            20%        { -webkit-transform: rotateX(80deg); }
+            40%        { -webkit-transform: rotateX(130deg); }
+            50%        { -webkit-transform: rotateX(180deg); }
+            60%        { -webkit-transform: rotateX(210deg); }
+            80%        { -webkit-transform: rotateX(270deg); }
+            100%    { -webkit-transform: rotateX(360deg); }
+        }
+        
+        @-moz-keyframes x-spin {
+            0%        { -webkit-transform: scale(1,1); }
+            20%        { -webkit-transform: scale(1,-0.2); }
+            40%        { -webkit-transform: scale(1,1); }
+            50%        { -webkit-transform: scale(1,-0.2); }
+            60%        { -webkit-transform: scale(1,1); }
+            80%        { -webkit-transform: scale(1,0.2); }
+            100%    { -webkit-transform: scale(1,1); }
+        }
+        
+        .butterFly {
+            -webkit-animation-name: x-spin;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-linear;
+        }
+        .butterFly1 {  -webkit-animation-duration: 0.4s; }
+        .butterFly2 { -webkit-animation-duration: 0.4s; }
+        .butterFly3 { -webkit-animation-duration: 0.32s; }
+	</style>
+</head>
+<body>
+	
+	<h4>通过各种视角来进行合理的布局动画，transform + animation ，素材必须要选择正确</h4>
+	<div class="box">
+		<div class="hd_0"><img class="hd_l" src="../img/hd_l.png" alt=""><img class="hd_r" src="../img/hd_r.png" alt=""></div>
+		<!-- <div><img src="../img/hd_l.png" alt=""><img src="../img/hd_r.png" alt=""></div> -->
+	
+	</div>
+    <div id="butterfly">
+        <div id="butter1" class="butter">
+            <div class="butterFly1 butterFly"><img src="http://www.w3cplus.com/sites/default/files/butterfly1.png" alt="" /></div>
+        </div>
+        <div id="butter2" class="butter">
+            <div class="butterFly2 butterFly"><img src="http://www.w3cplus.com/sites/default/files/butterfly2.png" alt="" /></div>
+        </div>
+        <div id="butter3" class="butter">
+            <div class="butterFly3 butterFly"><img src="http://www.w3cplus.com/sites/default/files/butterfly3.png" alt="" /></div>
+        </div>
+    </div>    
+	
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/blog/172.html">参考资料 - CSS3的Animation制作蝴蝶飞舞</a>
+</body>
+</html>
