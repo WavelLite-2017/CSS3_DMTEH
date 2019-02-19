@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - REM单位 - 根据Html根元素为参考</title>
+	<style>
+		html {
+			font-size: 30px;
+		}
+		ul {
+			font-size: 20px;
+		}
+		/* 比对1： 1.5 ==》 30px */
+		.ft_0 {
+			font-size: 1.5em;
+		}
+		.ft_0_1 {
+			font-size: 30px;
+		}
+		/* 比对2： 0.5em ==> 12px(最低为12px，所以计算出来的低于12px的默认为12px) */
+		.ft_1 {
+			font-size: 0.4em;
+		}
+		.ft_1_1 {
+			font-size: 12px;
+		}
+		
+		/* 比对3： 1.5rem ==> 45px */
+		.ft_2 {
+			font-size: 1.5rem;
+		}
+		.ft_2_1 {
+			font-size: 45px;
+		}
+		/* 比对4： 0.3rem ==> 12px(最低为12px，所以计算出来的低于12px的默认为12px) */
+		.ft_3 {
+			font-size: 0.3rem;
+		}
+		.ft_3_1 {
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		EM转换公式：
+			1 ÷ 父元素的font-size × 需要转换的像素值 = em值
+			==>
+				需要转换的像素值 = em值 * 父元素的font-size
+
+		REM转换公式：
+			
+	-->
+	
+	<ul>
+		<li class="ft_0">文字大小1.5em，初始大小20px(ul) ==> 30px</li>
+		<li class="ft_0_1">文字对应设置大小比对 30px</li>
+		<br>
+		<li class="ft_1">文字大小 0.4em，初始大小20px(ul) ==> 8px</li>
+		<li class="ft_1_1">文字对应设置大小比对 12px</li>
+		<br>
+		<li class="ft_2">文字大小1.5rem，初始大小30px(html) ==> 45px</li>
+		<li class="ft_2_1">文字对应设置大小比对 45px</li>
+		<br>
+		<li class="ft_3">文字大小0.3rem，初始大小30px(html) ==> 9px</li>
+		<li class="ft_3_1">文字对应设置大小比对 12px</li>
+	</ul>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/css3/define-font-size-with-css3-rem">参考资料 - CSS3的REM设置字体大小</a>
+	<a href="http://pxtoem.com/">小工具 - px-rem-em-percent-points转换</a>
+	<a href="https://modernizr.com/">小工具 - 测试浏览器是否支持</a>
+	<br>
+	<br>
+</body>
+</html>

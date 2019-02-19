@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - 侧边栏菜单</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		body {
+			padding: 2em 10em;
+			font-size: 62.5%;
+			font-family: Arial;
+		}
+		
+		/*=======SideBar=======*/
+		.sidebar {
+			width: 26em;
+			float: right;
+			font-size: 1em;
+		}
+		
+		/*=======Ribbon=======*/
+		.blockTitle {
+			width: 18em;
+			background: #ba89b6;
+			color: #fff;
+			padding: 1em 2em;
+			position: relative;
+			font-size: 1em !important;/*base on font size*/
+			text-align: center;
+			margin: 0 auto;
+		}
+		.blockTitle:before,
+		.blockTitle:after {
+			content:"";
+			position: absolute;
+			display: block !important;
+			bottom: -1em;
+			border: 1.5em solid #986794;
+			z-index: -1;
+		}
+		
+		.blockTitle:after {
+			right: -2em;
+			border-right-color: transparent;
+		}
+		
+		.blockTitle:before {
+			left: -2em;
+			border-left-color: transparent;
+		}
+		
+		.blockTitle span {
+			font-size: 1.6em;
+			text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+		}
+		.blockTitle span:before,
+		.blockTitle span:after {			
+			content: "";
+			position: absolute;
+			display: block;
+			border-style: solid;
+			border-color: #80477c transparent transparent transparent;
+			bottom: -0.625em;
+		}
+		
+		.blockTitle span:before {
+			left: 0;
+			border-width: 0.625em 0 0 0.625em;
+		}
+		
+		.blockTitle span:after {
+			right: 0;
+			border-width: 0.625em 0.625em 0 0;
+		}
+		/*====BoxShadow=====*/
+		.blockContent {
+			border: 1px solid #986794;
+			border-top: none 0;
+			padding: 2em;
+			width: 16em;
+			margin: 0 auto;
+			-webkit-box-shadow: 1px 1px 4px rgba(128,71,124, 0.1);
+			-moz-box-shadow: 1px 1px 4px rgba(128,71,124, 0.1);
+			box-shadow: 1px 1px 4px rgba(128,71,124, 0.1);
+			-moz-border-radius: 0 0 60px 0 / 0 0 5px 0;
+			-webkit-border-radius: 0 0 60px 0 / 0 0 5px 0;
+			border-radius: 0 0 60px 0 / 0 0 5px 0;
+			position: relative;
+			background-color: rgba(255,255,255,1);
+			background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(128,71,124, 0.1)), to(rgba(186,137,182,0.3)));
+			background-image: -webkit-linear-gradient(top, rgba(128,71,124, 0.1), rgba(186,137,182,0.3));
+			background-image: -moz-linear-gradient(top, rgba(128,71,124, 0.1), rgba(186,137,182,0.3));
+			background-image: -ms-linear-gradient(top, rgba(128,71,124, 0.1), rgba(186,137,182,0.3));
+			background-image: -o-linear-gradient(top, rgba(128,71,124, 0.1), rgba(186,137,182,0.3));
+			background-image: linear-gradient(top, rgba(128,71,124, 0.1), rgba(186,137,182,0.3));
+		}
+		.blockContent:before{
+			content: '';
+			width: 94%;
+			z-index:-1;
+			height: 100%;
+			padding: 0 0 1px 0;
+			position: absolute;
+			bottom:0; right:0;
+			background: #fff;
+			background: -webkit-gradient(linear, 0% 20%, 0% 92%, from(#fff), to(#f9f9f9), color-stop(.1,#fff));
+			background: -webkit-linear-gradient(0 0 270deg, #fff, #fff 10%, #f9f9f9);
+			background: -o-linear-gradient(0 0 270deg, #fff, #fff 10%, #f9f9f9);
+			background: -moz-linear-gradient(0 0 270deg, #fff, #fff 10%, #f9f9f9);
+			border: 1px solid #986794;
+			-webkit-box-shadow: 1px 1px 8px rgba(128,71,124, 0.1);
+			-moz-box-shadow: 1px 1px 8px rgba(128,71,124, 0.1);
+			box-shadow: 1px 1px 8px rgba(128,71,124, 0.1);
+			-moz-border-radius: 0 0 60px 0 / 0 0 5px 0;
+			-webkit-border-radius: 0 0 60px 0 / 0 0 5px 0;
+			border-radius: 0 0 60px 0 / 0 0 5px 0;
+			-webkit-transform: skew(3deg, 3deg) translate(3px, 6px);
+			-moz-transform: skew(3deg, 3deg) translate(3px, 6px);
+			-o-transform: skew(3deg, 3deg) translate(3px, 6px);
+			transform: skew(3deg, 3deg) translate(3px, 6px);						
+		}
+		.blockContent:after{
+			content: '';
+			width: 94%;
+			z-index:-1;
+			height: 98%;
+			padding: 0 0 1px 0;
+			position: absolute;
+			bottom:0; right:0;
+			background: #fff;
+			background: -webkit-gradient(linear, 0% 20%, 0% 100%, from(#f3f3f3), to(#f6f6f6), color-stop(.1,#fff));
+			background: -webkit-linear-gradient(0 0 360deg, #f3f3f3, #fff 10%, #f6f6f6);
+			background: -o-linear-gradient(0 0 360deg, #f3f3f3, #fff 10%, #f6f6f6);
+			background: -moz-linear-gradient(0 0 360deg, #f3f3f3, #fff 10%, #f6f6f6);
+			border: 1px solid #986794;
+			-webkit-box-shadow: 0px 0px 8px rgba(128,71,124, 0.1);
+			-moz-box-shadow: 0px 0px 8px rgba(128,71,124, 0.1);
+			box-shadow: 0px 0px 8px rgba(128,71,124, 0.1);
+			-webkit-transform: skew(2deg,2deg) translate(-1px,2px);
+			-moz-transform: skew(2deg,2deg) translate(-1px,2px)	;
+			-o-transform: skew(2deg,2deg) translate(-1px,2px)	;
+			transform: skew(2deg,2deg) translate(-1px,2px)	;					
+		}
+		/*======Navigation Menu======*/
+		#navigationMenu li{
+			list-style:none;
+			height:40px;
+			padding:2px;
+			width:40px;
+		}
+
+		#navigationMenu span{
+			/* Container properties */
+			width:0;
+			left:40px;
+			padding:0;
+			position:absolute;
+			overflow:hidden;
+
+			/* Text properties */
+			font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+			font-size:18px;
+			font-weight:bold;
+			letter-spacing:0.6px;
+			white-space:nowrap;
+			line-height:40px;
+			
+			/* CSS3 Transition: */
+			-webkit-transition: 0.25s;
+			
+			/* Future proofing (these do not work yet): */
+			-moz-transition: 0.25s;
+			transition: 0.25s;
+		}
+
+		#navigationMenu a{
+			background:url("../img/i_j.png") no-repeat;
+
+			height:40px;
+			width:40px;
+			display:block;
+			position:relative;
+		}
+
+		/* General hover styles */
+
+		#navigationMenu a:hover span{ 
+			width:auto; 
+			padding:0 20px;
+			overflow:visible; 
+		}
+		#navigationMenu a:hover{
+			text-decoration:none;			
+			/* CSS outer glow with the box-shadow property */
+			-moz-box-shadow:0 0 5px #9ddff5;
+			-webkit-box-shadow:0 0 5px #9ddff5;
+			box-shadow:0 0 5px #9ddff5;
+		}
+
+		/* Green Button */
+
+		#navigationMenu .home {	background-position:0 0;}
+		#navigationMenu .home:hover {	background-position:0 -40px;}
+		#navigationMenu .home span{
+			background-color:#7da315;
+			color:#3d4f0c;
+			text-shadow:1px 1px 0 #99bf31;
+		}
+
+		/* Blue Button */
+
+		#navigationMenu .about { background-position:-40px 0;}
+		#navigationMenu .about:hover { background-position:-40px -40px;}
+		#navigationMenu .about span{
+			background-color:#1e8bb4;
+			color:#223a44;
+			text-shadow:1px 1px 0 #44a8d0;
+		}
+
+		/* Orange Button */
+
+		#navigationMenu .services { background-position:-80px 0;}
+		#navigationMenu .services:hover { background-position:-80px -40px;}
+		#navigationMenu .services span{
+			background-color:#c86c1f;
+			color:#5a3517;
+			text-shadow:1px 1px 0 #d28344;
+		}
+
+		/* Yellow Button */
+
+		#navigationMenu .portfolio { background-position:-120px 0;}
+		#navigationMenu .portfolio:hover{ background-position:-120px -40px;}
+		#navigationMenu .portfolio span{
+			background-color:#d0a525;
+			color:#604e18;
+			text-shadow:1px 1px 0 #d8b54b;
+		}
+
+		/* Purple Button */
+
+		#navigationMenu .contact { background-position:-160px 0;}
+		#navigationMenu .contact:hover { background-position:-160px -40px;}
+		#navigationMenu .contact span{
+			background-color:#af1e83;
+			color:#460f35;
+			text-shadow:1px 1px 0 #d244a6;
+		}
+	</style>
+</head>
+<body>
+	<div class="sidebar" id="left">
+		<div class="block">
+			<h3 class="blockTitle"><span>W3cplus</span></h3>
+			<div class="blockContent">
+				<ul id="navigationMenu">
+					<li>
+						<a class="home" href="#">
+							<span>Home</span>
+						</a>
+					</li>	
+					<li>
+						<a class="about" href="#">
+							<span>About</span>
+						</a>
+					</li>			
+					<li>
+						<a class="services" href="#">
+							<span>Services</span>
+						</a>
+					</li>			
+					<li>
+						<a class="portfolio" href="#">
+							<span>Portfolio</span>
+						</a>
+					</li>			
+					<li>
+						<a class="contact" href="#">
+							<span>Contact</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/blog/173.html">参考资料 - CSS3制作边栏菜单</a>
+	<br>
+	<br>
+</body>
+</html>

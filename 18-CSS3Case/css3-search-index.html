@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - Apple官网Search Box - 搜索框</title>
+	<style>
+		body {
+			background: rgb(85, 85, 85);
+		}
+		.search {
+			position: relative;
+		}
+		
+		.search:before {
+			content: "";
+			border: 1px solid #777;
+			border-width: 1px 1px 2px;
+			width: 5px;
+			height: 0;
+			display: inline-block;
+			-moz-transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			position: absolute;
+			left:16px;
+			top:15px;
+			z-index:3;
+		}
+		
+		.search:after {
+			content: "";
+			width: 5px;
+			height: 5px;
+			border: 2px solid #777;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			position: absolute;
+			z-index: 2;
+			left: 10px;
+			top: 7px;
+			display: inline-block;
+		}
+		
+		.search input[type="text"] {
+			font: bold 12px Arial,Helvetica,Sans-serif;
+			width: 150px;
+			padding: 6px 15px 6px 35px;
+			border: 0 none;
+			color: #777;
+			-moz-border-radius: 20px;
+			-webkit-border-radius: 20px;
+			border-radius: 20px;
+			-webkit-transition: all 0.7s ease 0s;
+			-moz-transition: all 0.7s ease 0s;
+			-o-transition: all 0.7s ease 0s;
+			transition: all 0.7s ease 0s;
+		}
+		
+		.search input[type="text"]:focus {
+			width: 200px;
+			/* 去除选中时初始效果，以及添加边框效果 */
+			outline: none;
+			border: 1px solid red;
+		}
+
+		/*===========黑色背景色的Search Box============*/
+		.bgBlack input[type="text"] {
+			background-color: #444;
+			text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+			-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+			-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;    
+		}
+
+		/*===============高亮背景色的Search Box==============*/
+		.bgLight input[type="text"]{
+			background-color: #fcfcfc;/*change the background color*/
+			color: #bebebe;/*change the font color*/
+			text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+			-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+			-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+		}
+		.bgLight:after,
+		.bgLight:before {
+			border-color: #bebebe;/*change the icon color*/
+		}
+
+		/*==============Apple.com Search Box效果====================*/
+		.appleSearch input[type="text"] {
+			background-color: #444;
+			color: #d7d7d7;
+			text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+			-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+			-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;    
+		}
+		
+		.appleSearch input[type="text"]:focus {
+			background-color: #fcfcfc;
+			color: #6a6f75;
+			-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+			-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+			text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+	    }
+	</style>
+</head>
+<body>
+	<h2>黑色背景的Search Box</h2>
+	<form action="" id="searchBlack" method="get" class="search bgBlack">
+		<input type="text" name="search" size="40" placeholder="Search..." />
+	</form>
+	<h2>高亮背景的Search Box</h2>
+	<form action="" id="searchLight" method="get" class="search bgLight">
+		<input type="text" name="search" size="40" placeholder="Search..." />
+	</form>
+	<h2>Apple.com的Search Box</h2>
+	<form action="" id="searchApple" method="get" class="search appleSearch">
+		<input type="text" name="search" size="40" placeholder="Search..." />
+	</form>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/css3/create-apple-search-box-with-css3">参考资料 - CSS3制作Apple官网的Seach Box效果</a>
+	<a href="http://www.w3school.com.cn/cssref/pr_outline-style.asp">outline 知识点</a>
+	<br>
+	<br>
+</body>
+</html>
