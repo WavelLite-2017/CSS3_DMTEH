@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rgba对opacity</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.box, .box1, .box2 {
+			margin: 50px auto;
+			width: 240px;
+			height: 300px;
+			background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547186685562&di=4237baa755d59fccd2bec00bb3dc9ba7&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fu%2F00%2F38%2F54%2F05%2Fs_1198_561cff5c65b60.jpg) no-repeat top left;
+			border: 1px solid #000;
+			font-size: 14px;
+			position: relative;
+		}
+		.son, .son1, .son2, .bj {
+			width: 100%;
+			padding: 5px;
+			box-sizing: border-box;
+			color: #fff;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		.son {
+			background: #000;
+			/* 1 - 透明度把文字一起透明了 */
+			opacity: 0.4;
+			/* 4 - 使用与IE8 效果跟opacity一样 */
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+		}
+		.son1 {
+			/* 2 - 只负责透明该背景色即可，文字不受影响 */
+			background: rgba(0,0,0,0.4);
+		}
+		.bj {
+			/* 3 - 单独建立一个盒子来做背景透明 */
+			background: #000;
+			height: 70px;
+			opacity: 0.4;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+		}
+	</style>
+</head>
+<body>
+	<!-- 1 - opacity -->
+	<div class="box">
+		<div class="son">
+			<p>RGB色彩模式（也翻译为“红绿蓝”，比较少用）是工业界的一种颜色标准，opacity</p>
+		</div>
+	</div>
+	<!-- 2 - rgba -->
+	<div class="box1">
+		<div class="son1">
+			<p>RGB色彩模式（也翻译为“红绿蓝”，比较少用）是工业界的一种颜色标准，rgba</p>
+		</div>
+	</div>
+	<!-- 3 - opacity的额外盒子法，适用于IE上 -->
+	<div class="box2">
+		<div class="bj"></div>
+		<div class="son2">
+			<p>RGB色彩模式（也翻译为“红绿蓝”，比较少用）是工业界的一种颜色标准，other div</p>
+		</div>
+	</div>
+
+	<br>
+	<br>
+	<a href="https://www.w3cplus.com/content/css3-rgba">参考资料 - CSS3 RGBA</a>
+
+	<!-- 
+		PS: 使用颜色背景、阴影、边框、文字内容都可以通过RGBA来进行透明度操作
+	 -->
+</body>
+</html>

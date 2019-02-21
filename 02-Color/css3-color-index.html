@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 - Opacity - RGBA - HSLA - 颜色大战</title>
+	<style>
+		body {
+			background: url(../img/bd-0.png);
+		}
+		div {
+			font-size: 24px;
+			color: #fff;
+			width: 500px;
+			height: 100px;
+			background: red;
+			margin-bottom: 10px;
+		}
+		.c-0 {
+			opacity: 0.5;
+		}
+
+		.c-1 {
+			background: rgba(255,0,0,0.5);
+		}
+
+		.c-2 {
+			background: hsla(0,100%,50%,0.5);
+		}
+		.c-3 {
+			background: hsla(0,100%,60%,0.5);
+		}
+		.c-4 {
+			background: hsla(0,50%,60%,0.5);
+		}
+		.c-5 {
+			background: hsla(240,50%,60%,0.5);
+		}
+	</style>
+</head>
+<body>
+	
+	<h4>HSLA - H色相：0红色 120绿色 240蓝色0-360 - S饱和度0-100% - L亮度0-100%</h4>
+	<h4>结合PS来进行颜色调制即可</h4>
+
+	<div class="c-0">文字颜色对比即透明度对比 - Opacity</div>
+	<div class="c-1">文字颜色对比即透明度对比 - RGBA</div>
+	<div class="c-2">文字颜色对比即透明度对比 - HSLA</div>
+	<div class="c-3">文字颜色对比即透明度对比 - HSLA-L（亮度）</div>
+	<div class="c-4">文字颜色对比即透明度对比 - HSLA-S（饱和度）</div>
+	<div class="c-5">文字颜色对比即透明度对比 - HSLA-H（色相）</div>
+
+	<a href="https://www.w3cplus.com/css3/playing-with-css3-colors">参考资料 - 玩转CSS3的颜色</a>
+</body>
+</html>
